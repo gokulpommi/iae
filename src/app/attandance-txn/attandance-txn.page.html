@@ -1,0 +1,281 @@
+
+
+<ion-content [fullscreen]="true">
+  <ion-toolbar>
+       <ion-buttons slot="start">
+            <ion-button (click)="closeModal()"> <ion-icon style="color: white; margin-right: 10px;" name="close-sharp"  
+                    class="toolbar-title"></ion-icon></ion-button>
+           <!--  <ion-button  style="color: #ffffff;" (click)="backbutton()"
+                    class="toolbar-title"><ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+        <ion-title style="color: #ffffff;" class="toolbar-title">Attandance</ion-title>
+        </ion-toolbar>
+  <ion-card>
+  <div id="myForm" name="myForm" data-eformid="attendancepunching_txn" data-metaSync="false">
+        <ion-list class="card_list_padding">
+            <ion-item hidden name="idcarditem">
+                <ion-label class="label-disabled" color="primary" position="floating" class="elementhide">ID Card</ion-label>
+                <ion-input
+                    type="text"
+                    class="input_border"
+                    data-label="ID Card"
+                    data-id="idcard"
+                    data-projectid="72"
+                    data-fieldname="idcard"
+                    disabled
+                    data-eformid="attendancepunching_txn"
+                    data-readonly="True"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="MOBILENUMBER"
+                    data-validateexp=""
+                    data-displayorder="0"
+                    id="idcard"
+                    name="idcard"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['idcard']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item name="docdateitem" class="elementhide">
+                <ion-label color="primary" position="floating">Doc Date</ion-label>
+                <ion-datetime
+                    displayFormat="DD/MM/YYYY"
+                    class="input_border"
+                    data-readonly="True"
+                    data-projectid="72"
+                    data-fieldname="docdate"
+                    date-eformid="attendancepunching_txn"
+                    data-label="Doc Date"
+                    data-id="docdate"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="date()"
+                    data-displayorder="1"
+                    data-validateexp=""
+                    id="docdate"
+                    name="docdate"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    data-format="date"
+                    [(ngModel)]="preset_value['docdate']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-datetime>
+            </ion-item>
+            <ion-item name="intimeitem">
+                <ion-label color="primary" position="floating">In Time</ion-label>
+                <ion-input
+                    type="text"
+                    class="input_border"
+                    data-label="In Time"
+                    data-id="intime"
+                    data-projectid="72"
+                    data-fieldname="intime"
+                    data-eformid="attendancepunching_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="atttime"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="2"
+                    id="intime"
+                    name="intime"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['intime']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item name="outtimeitem">
+                <ion-label color="primary" position="floating">Out Time</ion-label>
+                <ion-input
+                    type="text"
+                    class="input_border"
+                    data-label="Out Time"
+                    data-id="outtime"
+                    data-projectid="72"
+                    data-fieldname="outtime"
+                    data-eformid="attendancepunching_txn"
+                    data-readonly="True"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="atouttime"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="2"
+                    id="outtime"
+                    name="outtime"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['outtime']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item name="pintimeitem" class="elementhide">
+                <ion-label color="primary" position="floating">Pin Time</ion-label>
+                <ion-input
+                    type="text"
+                    class="input_border"
+                    data-label="Pin Time"
+                    data-id="pintime"
+                    data-projectid="72"
+                    data-fieldname="pintime"
+                    data-eformid="attendancepunching_txn"
+                    data-readonly="True"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="2"
+                    id="pintime"
+                    name="pintime"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['pintime']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item name="pouttimeitem" class="elementhide">
+                <ion-label color="primary" position="floating">Pout Time</ion-label>
+                <ion-input
+                    type="text"
+                    class="input_border"
+                    data-label="Pout Time"
+                    data-id="pouttime"
+                    data-projectid="72"
+                    data-fieldname="pouttime"
+                    data-eformid="attendancepunching_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="time()"
+                    data-validateexp=""
+                    data-displayorder="5"
+                    id="pouttime"
+                    name="pouttime"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['pouttime']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item name="latitudeitem" class="elementhide">
+                <ion-label color="primary" position="floating">Latitude</ion-label>
+                <ion-input
+                    type="text"
+                    class="input_border"
+                    data-label="Latitude"
+                    data-id="latitude"
+                    data-projectid="72"
+                    data-fieldname="latitude"
+                    data-eformid="attendancepunching_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="5"
+                    id="latitude"
+                    name="latitude"
+                    readonly="False"
+                    data-modeOfEntry="tbc"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['latitude']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item name="longitudeitem" class="elementhide">
+                <ion-label color="primary" position="floating">Longitude</ion-label>
+                <ion-input
+                    type="text"
+                    class="input_border"
+                    data-label="Longitude"
+                    data-id="longitude"
+                    data-projectid="72"
+                    data-fieldname="longitude"
+                    data-eformid="attendancepunching_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="5"
+                    id="longitude"
+                    name="longitude"
+                    readonly="False"
+                    data-modeOfEntry="tbc"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['longitude']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+
+            <ion-row style="margin-top: 10px; margin-bottom: 10px;">
+                <ion-col size="6" >
+                    <ion-button size="small" expand="block" (click)="attendance('FireSQL({A1},{attendancepunching_txn},{in},{idcard},{I},{T})')"  [disabled]="isInDisabled()" ><ion-icon name="log-in-outline" style="padding-right: 10px;"></ion-icon>IN</ion-button>
+                </ion-col>
+                <ion-col size="6" >
+                    <ion-button size="small" expand="block" (click)="attendance('FireSQL({A2},{attendancepunching_txn},{out},{idcard},{I},{T})')"  [disabled]="isOutDisabled()"><ion-icon name="log-out-outline" style="padding-right: 10px;"></ion-icon>Out</ion-button>
+                </ion-col>
+            </ion-row>
+            
+            
+        </ion-list>
+    </div>
+</ion-card>
+</ion-content>

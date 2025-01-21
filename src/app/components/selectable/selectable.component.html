@@ -1,0 +1,12 @@
+<ion-item>
+  <ion-label color="primary" position="floating">{{fieldName}}<ion-text  color="danger">*</ion-text></ion-label>
+  <ionic-selectable
+    class="select_input_border"    
+    (onChange)="onChange($event,fieldName)"
+    [items]="optionsJson"
+    [itemValueField]="valueField"
+    [itemTextField]="displayField"
+    [selectedValue]="presetValue?.[fieldName]"   
+    [canSearch]="true">
+  </ionic-selectable>
+</ion-item>

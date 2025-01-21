@@ -1,0 +1,44 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Attendance Report</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+   <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="paramModal($event,fab)">
+            <ion-icon name="search-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+   <ion-card style="border-radius: 10px;">
+    <form id="attendancereport_rptForm" name="attendancereport_rptForm">
+        <div *ngIf="!searchDisplay" class="report_header">
+            <ion-row class="header_align"><h5>Attendance Report</h5></ion-row>
+        </div>
+        <ion-list class="scroll">
+            <table class="table table-striped" id="attendancereport_rpt_tb" name="attendancereport_rpt_tb">
+                <thead>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="docdate">Doc Date</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="idcard">Mob No</th>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="login_id">login_id</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="employee_name">Employee Name</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="intime">In Time</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="outtime">Out Time</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </ion-list>
+     </form>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-app>  
+     <ion-split-pane contentId="main-content">
+    <ion-menu  [swipeGesture]="false" contentId="main-content" type="overlay">
+       <ion-header>  
+         <ion-toolbar >  
+           <ion-title style="color: #ffff;">India Agro</ion-title>
+          </ion-toolbar>   
+       </ion-header>   
+       <ion-content >  
+          <ion-list style="lines:none">  
+           <ion-menu-toggle auto-hide="false" > 
+
+              <ng-container *ngFor="let page of this.page; let i = index">
+               
+                   <ion-item style="color: #007f70; --border-width: 0 0 2px 0; --border-color: #ccc; height: 50px;" routerDirection="root" lines="none" [routerLink]="[item.view]" class="my-hover" detail="false" *ngFor="let item of page.items">
+                    <ion-icon slot="start" color="#ffffff" [ios]="item.cls + '-outline'" [md]="item.cls + '-sharp'"></ion-icon>
+                    <ion-label>{{item.tit}}</ion-label>
+                  </ion-item>
+              </ng-container>
+             <!-- <ion-item >  
+              <ion-row>
+                <ion-col (click)="activeIndex = i" routerDirection="root" [routerLink]="[page.view]">{{page.tit}}</ion-col>
+              </ion-row>          
+              
+             </ion-item>   -->
+           </ion-menu-toggle>  
+         </ion-list>  
+       </ion-content>   
+     </ion-menu>  
+     <ion-router-outlet Id="main-content"></ion-router-outlet>  
+   </ion-split-pane>
+   </ion-app> 

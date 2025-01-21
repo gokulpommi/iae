@@ -1,0 +1,63 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Location Tracking<br> {{preset_value['uname']}}/{{preset_value['fdate']}}</ion-title> 
+
+     <ion-buttons slot="end">
+             <ion-button color="dark" ion-button (click)="paramModal($event,'')">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> 
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+
+
+  <form id="locationtracking_rptForm" name="locationtracking_rptForm">
+  <!-- Google Map Display -->
+  <div style="height: 100%;">
+    <google-map 
+      [zoom]="zoom"
+      [center]="center"
+      [options]="{ disableDefaultUI: true }">
+
+      <!-- Polyline to show the route -->
+      <map-polyline 
+        *ngIf="locations.length > 0"
+        [path]="polylinePath"
+        [options]="{
+          strokeColor: '#1881e7', 
+          strokeWeight: 3, 
+          strokeOpacity: 0.8
+        }">
+      </map-polyline>
+
+      <!-- Markers for each tracked location -->
+      <map-marker 
+        *ngFor="let loc of locations" 
+        [position]="{ lat: loc.latitude, lng: loc.longitude }"
+        (mapClick)="onMarkerClick(marker, loc)"
+        #marker>
+      </map-marker>
+
+      <div style="margin:10px">
+        <h5>Total Distance: {{ totalKilometers | number: '1.0-2' }} km</h5>
+        <h5>Total Time: {{ totalTimeFormatted }}</h5> <!-- Display formatted time -->
+      </div>
+      <!-- <map-info-window #infoWindow>
+        {{ selectedLocationDetails }}
+      </map-info-window> -->
+      <div style="margin:10px;">
+        <h5>{{ selectedLocationDetails }} </h5>
+      </div>
+     
+    </google-map>
+  </div>
+ 
+</form>
+</ion-content>

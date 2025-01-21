@@ -1,0 +1,58 @@
+{
+    "menus": [
+        {
+            "name": "",
+            "items": [
+
+               
+                {
+                    "do": "1",
+                    "tit": "Farmer List",
+                    "view": "farmerappmanager-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/farmer.png" }
+                },
+               
+                {
+                    "do": "2",
+                    "tit": "Attandance Report ",
+                    "view": "attendance-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/attendance.png" }
+                },
+               
+                {
+                    "do": "3",
+                    "tit": "Farmer Analysis",
+                    "view": "farmeranalysis-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/plant.png" }
+                },
+               
+                {
+                    "do": "4",
+                    "tit": "Track Map",
+                    "view": "tracktimeline",
+                    "cls": { "type": "img", "name": "assets/icon/delivery.png" }
+                },
+                {
+                    "do": "5",
+                    "tit": "Spray Activity Details",
+                    "view": "",
+                     "cls": { "type": "img", "name": "assets/icon/herbicide.png" }
+                },
+               
+                {
+                    "do": "6",
+                    "tit": "Farmer Alert Details",
+                    "view": "",
+                    "cls": { "type": "img", "name": "assets/icon/smart-farming.png" }
+                }
+
+                 
+               
+                
+            ]
+        }
+        
+        
+       
+    ]
+}

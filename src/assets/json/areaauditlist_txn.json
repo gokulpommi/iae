@@ -1,0 +1,153 @@
+[
+    {
+        "tt": "Area Audit List",
+        "vt": "ng",
+        "st": "both",
+        "pt": "farmerppm",
+        "dpt": "FARMERPMYSQL",
+        "idt": "areaauditlist_txn",
+        "didt": "areaauditlist_txn",
+        "exp": null,
+        "pos": "\"\"",
+        "gp_op": null,
+        "tran_meta": [{ "tx": "Area Audit", "prm_meta": [{ "tt": "Area Audit", "tb": "areaaudittag", "rt": "one-to-many", "ispm": "True", "tb_s": "areaaudittag" }] }],
+        "cont_meta": [
+            {
+                "tt": "Area Audit",
+                "cap": "Area Audit List",
+                "ctype": "list",
+                "itype": "stacked",
+                "pt": null,
+                "exp": "{}",
+                "do": 1,
+                "db": "areaaudittag",
+                "idt": "area_audit",
+                "cn_gp": null,
+                "children": [],
+                "comp_meta": [
+                    {
+                        "id": 726,
+                        "tt": "areapoint",
+                        "cap": "Area Point",
+                        "iro": "False",
+                        "ih": "False",
+                        "ire": "False",
+                        "ad": "False",
+                        "wt": "text",
+                        "exp": null,
+                        "vep": null,
+                        "sql": null,
+                        "do": 1,
+                        "idt": "areapoint",
+                        "tid": "89",
+                        "cjson": [
+                            {
+                                "id": 2283,
+                                "title": "Area Point",
+                                "txtabledetailid": "areaaudittag",
+                                "datatype": "CharField",
+                                "field_slug": "areapoint",
+                                "isdbfield": true,
+                                "enum_meta": [],
+                                "maxlength": 100,
+                                "no_of_decimal_digits": 0,
+                                "columnname": "areapoint",
+                                "isnull": true,
+                                "is_system_component": false
+                            }
+                        ],
+                        "moe": "tbe",
+                        "sug": "False",
+                        "ct": "CharField",
+                        "isdep": "False",
+                        "isd": "False",
+                        "df": "True"
+                    },
+                    {
+                        "id": 727,
+                        "tt": "ragid",
+                        "cap": "Ragid",
+                        "iro": "False",
+                        "ih": "True",
+                        "ire": "False",
+                        "ad": "True",
+                        "wt": "text",
+                        "exp": null,
+                        "vep": null,
+                        "sql": null,
+                        "do": 2,
+                        "idt": "ragid",
+                        "tid": "89",
+                        "cjson": [
+                            {
+                                "id": 2284,
+                                "title": "Ragid",
+                                "txtabledetailid": "areaaudittag",
+                                "datatype": "CharField",
+                                "field_slug": "ragid",
+                                "isdbfield": true,
+                                "enum_meta": [],
+                                "maxlength": 100,
+                                "no_of_decimal_digits": 0,
+                                "columnname": "ragid",
+                                "isnull": true,
+                                "is_system_component": false
+                            }
+                        ],
+                        "moe": "tbe",
+                        "sug": "False",
+                        "ct": "CharField",
+                        "isdep": "False",
+                        "isd": "False",
+                        "df": "True"
+                    },
+                    {
+                        "id": 2372,
+                        "tt": "mapdata",
+                        "cap": "Map Data",
+                        "iro": "False",
+                        "ih": "False",
+                        "ire": "True",
+                        "ad": "True",
+                        "wt": "sas",
+                        "exp": null,
+                        "vep": null,
+                        "sql": "{\"sqlDbType\":\"client\",\"Sql\":\"select offlinemapstorageid,latlong,place  from offlinemapstorage\",\"key\":\"offlinemapstorageid\",\"value\":\"place\"}",
+                        "do": 3,
+                        "idt": "mapdata",
+                        "tid": "89",
+                        "cjson": [
+                            {
+                                "id": 4314,
+                                "title": "Map Data",
+                                "txtabledetailid": "areaaudittag",
+                                "datatype": "CharField",
+                                "field_slug": "mapdata",
+                                "isdbfield": true,
+                                "enum_meta": [],
+                                "maxlength": 500,
+                                "no_of_decimal_digits": null,
+                                "columnname": "mapdata",
+                                "isnull": true,
+                                "is_system_component": false
+                            }
+                        ],
+                        "moe": "tbe",
+                        "sug": "False",
+                        "ct": "CharField",
+                        "isdep": "True",
+                        "isd": "False",
+                        "df": "True"
+                    }
+                ]
+            }
+        ],
+        "eupdate_meta": [],
+        "epost_meta": [],
+        "action_meta": [{ "at": "Save", "save": { "tt": "Save", "exp": "", "pos": "", "icls": "done-all", "u_con": null }, "new": "", "cancel": "", "delete": "", "search": "", "printformat": "", "googlesync": "" }],
+        "sms_config": null,
+        "email_config": null,
+        "epopup_meta": [],
+        "synctype": false
+    }
+]

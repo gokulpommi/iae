@@ -1,0 +1,142 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+/* @import "@ionic/angular/css/palettes/dark.system.css"; */
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+
+:root{
+   
+   .alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md{
+      max-width: 80% !important;
+      width: 100% !important;
+	}
+}
+
+.param-modal{
+    --background:rgba(44,39,45,0.2);
+    border-radius:8px;
+    &::part(content){
+    backdrop-filter:blur(6px);
+    }
+    ion-content{
+    --background:transparent;
+    --padding-top:30vh;
+    --padding-start:20px;
+    --padding-end:20px;
+     border-radius:8px;
+     ion-grid{
+     border-radius:8px;
+     }
+    }
+ }
+
+ ion-modal#modaldate{
+    --background:rgba(44,39,45,0.2);
+    &::part(content){
+    backdrop-filter:blur(6px);
+    }
+    ion-content{
+    --background:transparent;
+    --padding-top:25vh;
+    --padding-start:20px;
+    --padding-end:20px;
+    }
+    ion-datetime{
+    border-radius:8px;
+    }
+}
+
+ion-modal.modaldate{
+    --background:rgba(44,39,45,0.2);
+    &::part(content){
+    backdrop-filter:blur(6px);
+    }
+    ion-content{
+    --background:transparent;
+    --padding-top:25vh;
+    --padding-start:20px;
+    --padding-end:20px;
+    }
+    ion-datetime{
+    border-radius:8px;
+    }
+}
+
+ .feedback-modal{
+    --background:rgba(44,39,45,0.2);
+    border-radius:8px;
+    &::part(content){
+    backdrop-filter:blur(6px);
+    }
+    ion-content{
+    --background:transparent;
+    --padding-top:10vh;
+    --padding-start:10px;
+    --padding-end:10px;
+     border-radius:8px;
+     ion-grid{
+     border-radius:8px;
+     }
+    }
+ }
+
+ .elementhide{
+   display:none;
+ }
+
+
+.thead-span{
+    
+    padding: 0 !important;
+    height: 50px;  
+    background-color: #007f70 !important;
+    color: white !important;
+    vertical-align: middle !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    border-right: 0.5px dashed white;
+
+}
+
+map-info-window {
+  display: block !important;   
+  visibility: visible !important; 
+  opacity: 1 !important;
+  margin:10px;
+  font-size:1rem;  
+}

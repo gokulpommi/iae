@@ -1,0 +1,190 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+           <ion-button  style="color: #ffffff;" (click)="backbutton()"
+                    class="toolbar-title"><ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title style="color: #ffffff;">Farmers Data</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="paramModal($event,fab)">
+            <ion-icon name="search-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-card style="border-radius: 10px;">
+        <form id="farmersdata_rptForm" name="farmersdata_rptForm">
+            <!-- <div *ngIf="!searchDisplay" class="report_header">
+                <ion-row class="header_align">
+                    <center><h5>{{headerOne}}</h5></center>
+                </ion-row>
+            </div> -->
+            <div id="displayreport">
+                <ion-list *ngFor="let active of this.names let i =index" id="activerow-{{i}}">
+                    <ion-grid>
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5" size-xs=""><strong>Farmer Id</strong></ion-col>
+                            <ion-col size="7">{{active.farmerid}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Mobile Number</strong></ion-col>
+                            <ion-col size="7">{{active.mobile}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Age</strong></ion-col>
+                            <ion-col size="7">{{active.age}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Village</strong></ion-col>
+                            <ion-col size="7">{{active.village}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Acres</strong></ion-col>
+                            <ion-col size="7">{{active.acres}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Sowing Date</strong></ion-col>
+                            <ion-col size="7">{{active.sowingdate}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Crop Status</strong></ion-col>
+                            <ion-col size="7">{{active.cropstatus}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Crop Status Date</strong></ion-col>
+                            <ion-col size="7">{{active.cropstatusdate}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Scheme</strong></ion-col>
+                            <ion-col size="7">{{active.scheme}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Remarks</strong></ion-col>
+                            <ion-col size="7">{{active.remarks}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Geo Loc</strong></ion-col>
+                            <ion-col size="7">{{active.geotag}}</ion-col>
+                        </ion-row>
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Geo Image</strong></ion-col>
+                            <ion-col size="7" *ngIf="modifyImage">
+                                <ion-img [src]="mImage"></ion-img>
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>Audited AREA</strong></ion-col>
+                            <ion-col size="7">{{active.auditedarea}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>LAST Activity</strong></ion-col>
+                            <ion-col size="7">{{active.lastactivity}}</ion-col>
+                        </ion-row>
+
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>LAST Activity Dt</strong></ion-col>
+                            <ion-col size="7">{{active.activitydate}}</ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <ion-row>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="area_audit" (click)="displayReportbtn($event,'area_audit',i)">
+                                <ion-icon name="bookmarks" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Area Audit</div>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-button [disabled]="active.geotag === true || active.geotag === 'True' || active.geotag != '' " expand="block" class="exp-report-btn" id="geo_tagging" (click)="displayReportbtn($event,'geo_tagging',i)">
+                                <ion-icon name="globe" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Geo Tag</div>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="inputs" (click)="displayReportbtn($event,'inputs',i)">
+                                <ion-icon name="flower" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Inputs</div>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="returns" (click)="displayReportbtn($event,'returns',i)">
+                                <ion-icon name="document" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Returns</div>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="purchases" (click)="displayReportbtn($event,'purchases',i)">
+                                <ion-icon name="logo-bitcoin" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Purchases</div>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="payments" (click)="displayReportbtn($event,'payments',i)">
+                                <ion-icon name="cash" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Payments</div>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="spraying" (click)="displayReportbtn($event,'spraying',i)">
+                                <ion-icon name="information-circle" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Spray Activity</div>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="frm_summary" (click)="displayReportbtn($event,'frm_summary',i)">
+                                <ion-icon name="book" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Summary</div>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="alerts" (click)="displayReportbtn($event,'alerts',i)">
+                                <ion-icon name="bonfire" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Alerts</div>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="payment_request" (click)="displayReportbtn($event,'payment_request',i)">
+                                <ion-icon name="cash" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Payment Req</div>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="call" (click)="displayReportbtn($event,'gsmcall',i)">
+                                <ion-icon name="call" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Call</div>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-button expand="block" class="exp-report-btn" id="fertilizer_update" (click)="displayReportbtn($event,'fertilizer_update',i)">
+                                <ion-icon name="bonfire" class="tb-icon-bt"></ion-icon>
+                                <div class="button-text">Fertilizer Update</div>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-list>
+            </div>
+        </form>
+    </ion-card>
+</ion-content>
+<ion-footer></ion-footer>

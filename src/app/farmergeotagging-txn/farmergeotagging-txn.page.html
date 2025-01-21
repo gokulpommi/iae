@@ -1,0 +1,250 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button  style="color: #ffffff;" (click)="backbutton()"
+                    class="toolbar-title"><ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title style="color: #ffffff;" class="toolbar-title">Geo Tagging</ion-title>
+        <div *ngIf="(viewMode || isRapidCalling) && (modifyMode || isRapidCalling)" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="modify" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+        <div *ngIf="!viewMode && !isRapidCalling && !modifyMode" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="normal" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card style="border-radius: 10px; box-shadow: none;">
+    <div id="myForm" name="myForm" data-eformid="farmergeotagging_txn" data-metaSync="false">
+        <ion-list class="card_list_padding">
+           <!--  <ion-item name="farmgeoitem" hidden>
+                <ion-label color="primary" position="floating">Geo Tag</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="Geo Tag"
+                    class="input_border"
+                    data-label="Geo Tag"
+                    data-id="farmgeo"
+                    data-projectid="72"
+                    data-fieldname="farmgeo"
+                    data-eformid="farmergeotagging_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="1"
+                    id="farmgeo"
+                    name="farmgeo"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value.farmgeo"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item> -->
+             <ion-button fill="clear" (click)="getlocation()"><ion-icon name="locate-sharp"></ion-icon> Take Current Location</ion-button>
+            <ion-item hidden name="ragiditem">
+                <ion-label color="primary" position="floating" hidden>Ragid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="Ragid"
+                    class="input_border"
+                    data-label="Ragid"
+                    data-id="ragid"
+                    data-projectid="72"
+                    data-fieldname="ragid"
+                    data-eformid="farmergeotagging_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="2"
+                    id="ragid"
+                    name="ragid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['ragid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+          
+            <ion-item name="latitudeitem">
+                <ion-label class="label-disabled" color="primary" position="floating">Latitude</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_border"
+                    data-label="Latitude"
+                    data-id="latitude"
+                    data-projectid="72"
+                    data-fieldname="latitude"
+                    disabled
+                    data-eformid="farmergeotagging_txn"
+                    data-readonly="True"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="4"
+                    id="latitude"
+                    name="latitude"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['latitude']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item name="longitudeitem">
+                <ion-label class="label-disabled" color="primary" position="floating">Longitude</ion-label>
+                <ion-input
+                    type="text"
+                    
+                    class="input_border"
+                    data-label="Longitude"
+                    data-id="longitude"
+                    data-projectid="72"
+                    data-fieldname="longitude"
+                    disabled
+                    data-eformid="farmergeotagging_txn"
+                    data-readonly="True"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="5"
+                    id="longitude"
+                    name="longitude"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['longitude']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+              <ion-item  name="frmgeoaddressitem">
+                <ion-label color="primary" position="floating" >Address</ion-label>
+                <ion-textarea
+                    type="text"
+                    
+                    class="input_border"
+                    data-label="Address"
+                    data-id="frmgeoaddress"
+                    data-projectid="72"
+                    data-fieldname="frmgeoaddress"
+                    data-eformid="farmergeotagging_txn"
+                    data-readonly=false
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    [autoGrow]="true"
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="3"
+                    id="frmgeoaddress"
+                    name="frmgeoaddress"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"                    
+                    [(ngModel)]="preset_value['frmgeoaddress']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-textarea>
+            </ion-item>
+
+             <div  #imgWrapper>
+                <img [src]="base64Image" alt="Location-based image">
+                
+              </div>
+              
+            <div *ngIf="!image_meta?.['geotag']?.['uploadstatus']" (click)="uploadgps('geotag')" class="txn-img-div">
+                  <ion-button ion-button icon-start small>
+                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                    Upload
+                  </ion-button>
+                </div>
+
+                <!-- Delete button: Only show if uploadstatus is true -->
+                <div *ngIf="image_meta?.['geotag']?.['uploadstatus']" (click)="deleteuploadImage('geotag')" class="txn-img-div">
+                  <ion-button ion-button icon-start small color="danger">
+                    <ion-icon name="trash"></ion-icon>
+                    Delete
+                  </ion-button>
+                </div>
+              <!-- <ion-button *ngIf="statimageUrl" (click)="uploadgps('geotag')">Upload</ion-button> -->
+
+               <!--  <ion-list data-id="geotag" data-eformid="farmergeotagging_txn" data-hidden="False" data-displayorder="9" data-modeOfEntry="tbe" data-suggestive="False">
+                 <ion-item  class="ion-align-items-center">
+                            <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >CFC Upload<ion-text color="danger">*</ion-text> </ion-label>
+                            <ion-button slot="end" fill="clear"  id="geotag" name="geotag" (click)="upload($event)">
+                                <ion-icon name="camera"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+               
+                <div *ngIf="takenImage['geotag']" text-center>
+                    <ion-row>
+                        <ion-col size="6"><img class="image" [src]="takenImage['geotag']" class="txn-img" align="middle" /></ion-col>
+
+                        <ion-col size="6" class="txn-img-col">
+                            <div class="txn-img-div">FileName:</div>
+                            <div>{{image_meta['geotag']['filename']}}</div>
+                            <div *ngIf="!image_meta['geotag']['uploadstatus']" (click)="uploadImage('geotag')" class="txn-img-div">
+                                <ion-button ion-button icon-start small>
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                    upload
+                                </ion-button>
+                            </div>
+                            <div *ngIf="image_meta['geotag']['uploadstatus']" (click)="deleteuploadImage('geotag')" class="txn-img-div">
+                                <ion-button ion-button icon-start small color="danger">
+                                    <ion-icon name="trash"></ion-icon>
+                                    Delete
+                                </ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-list> -->
+
+        </ion-list>
+    </div>
+
+  </ion-card>
+</ion-content>
+

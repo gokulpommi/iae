@@ -1,0 +1,55 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Geo Area Pending</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+    <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="paramModal($event,fab)">
+            <ion-icon name="search-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-card style="border-radius: 10px;">
+        <form id="geoandareapending_rptForm" name="geoandareapending_rptForm">
+            <div *ngIf="!searchDisplay" class="report_header">
+                <ion-row class="header_align"><h5>Geo And Area Pending</h5></ion-row>
+            </div>
+            <ion-list class="scroll">
+                <table class="table table-striped" id="geoandareapending_rpt_tb" name="geoandareapending_rpt_tb">
+                    <thead>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="sowtran1id">sowtran1id</th>
+                        <th class="elementhide" data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="ragid">Ragid</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="farmerid">Farmer Name</th>
+                        <th
+                            data-expandbt="false"
+                            data-hidden="false"
+                            data-type="button"
+                            data-dontrepeat="false"
+                            data-icons="bookmark"
+                            data-exp="viewreport(farmersdata_rpt,{[]/[ragid]/[]})"
+                            data-ac="F"
+                            data-nod="0"
+                            data-idt="viewreportbutton"
+                        >
+                            More Details
+                        </th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </ion-list>
+        </form>
+    </ion-card>
+</ion-content>
+

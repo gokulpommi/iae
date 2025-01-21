@@ -1,0 +1,19 @@
+:host {
+
+    ion-content {
+        //--background: #E6F5F3;
+    }
+
+    ion-toolbar {
+        --background: #007f70;
+    }
+
+    .item-interactive.ion-invalid {
+        --highlight-background: #4285F4 !important;
+    }
+
+    .item-interactive.ion-valid {
+        --highlight-background: #4285F4 !important;
+    }
+
+}

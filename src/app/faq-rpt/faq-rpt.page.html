@@ -1,0 +1,49 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">FAQ Report</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+    <ion-card style="border-radius: 10px;">
+        <form id="faq_rptForm" name="faq_rptForm">
+            <div *ngIf="!searchDisplay" class="report_header">
+                <ion-row class="header_align"><h5>Frequently Asked Questions</h5></ion-row>
+            </div>
+            <ion-list class="scroll">
+                <table class="table table-striped" id="faq_rpt_tb" name="faq_rpt_tb">
+                    <thead>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="fstask">Topics</th>
+
+                        <th
+                            data-expandbt="false"
+                            data-hidden="false"
+                            data-type="button"
+                            data-dontrepeat="false"
+                            data-icons="bookmarks"
+                            data-exp="viewreport(faqdetails-rpt,{[]/[fstask,cropscheme]/[]})"
+                            data-ac="F"
+                            data-nod="0"
+                            data-idt="details"
+                        >
+                            Details
+                        </th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </ion-list>
+        </form>
+    </ion-card>
+</ion-content>
+

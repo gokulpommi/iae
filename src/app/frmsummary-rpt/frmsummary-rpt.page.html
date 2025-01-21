@@ -1,0 +1,65 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Farm Summary</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+   
+        <form id="frmsummary_rptForm" name="frmsummary_rptForm">
+            
+            <div id="displayreport">
+                <ion-list *ngFor="let active of this.names let i =index" id="activerow-{{i}}">
+                  <ion-card style="border-radius: 10px; ">
+                    <ion-grid>
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>OpBal</strong></ion-col><ion-col>{{active.opbal}}</ion-col>
+                        </ion-row>
+                    
+                    
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>INPUTVAL</strong></ion-col><ion-col>{{active.inputval}}</ion-col>
+                        </ion-row>
+                    
+                    
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>CROPVAL</strong></ion-col><ion-col>{{active.cropval}}</ion-col>
+                        </ion-row>
+                    
+                    
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>AMTPAID</strong></ion-col><ion-col>{{active.amtpaid}}</ion-col>
+                        </ion-row>
+                    
+                    
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>ADJAMT</strong></ion-col><ion-col>{{active.adjamt}}</ion-col>
+                        </ion-row>
+                    
+                    
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>BONUS AMT</strong></ion-col><ion-col>{{active.bonus_amt}}</ion-col>
+                        </ion-row>
+                    
+                    
+                        <ion-row style="font-size: 14px;">
+                            <ion-col size="5"><strong>CL BAL</strong></ion-col><ion-col>{{active.cl_bal}}</ion-col>
+                        </ion-row>
+                    </ion-grid>
+                  </ion-card>
+                </ion-list>
+            </div>
+        </form>
+ 
+</ion-content>

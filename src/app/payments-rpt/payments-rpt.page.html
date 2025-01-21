@@ -1,0 +1,44 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Payments</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content class="rpt-background">
+    <ion-card style="border-radius: 10px;">
+
+    <form id="payments_rptForm" name="payments_rptForm">
+        
+        <div *ngIf="!searchDisplay" class="report_header">
+            <ion-row class="header_align"><h5>Payments</h5></ion-row>
+        </div>
+        <div class="custom-card">
+             <ion-list class="scroll">
+            <table class="table" id="payments_rpt_tb" name="payments_rpt_tb">
+                <thead>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="capdesc">Description</th>
+                    <th style="text-align:center;" data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="capchqdt">Date</th>
+                    <th style="text-align:center;" data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="2" data-idt="capamt">Amount</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="capdesc">capdesc</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="capchqdt">capchqdt</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="capamt">capamt</th>
+                    <th data-expandbt="true" style="width: 10%;"></th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </ion-list>
+        </div>
+    </form>
+</ion-card>
+</ion-content>

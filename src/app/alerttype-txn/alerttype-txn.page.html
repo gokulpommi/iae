@@ -1,0 +1,329 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button  style="color: #ffffff;" (click)="backbutton()"
+                    class="toolbar-title"><ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title style="color: #ffffff;" class="toolbar-title">Alert Type</ion-title>
+        <div *ngIf="(viewMode || isRapidCalling) && (modifyMode || isRapidCalling)" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="modify" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+        <div *ngIf="!viewMode && !isRapidCalling && !modifyMode" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="normal" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="box-shadow: none; ">
+    <div id="myForm" name="myForm" data-eformid="alerttype_txn" data-metaSync="false">
+        <ion-list class="card_list_padding">
+            <ion-item class="elementhide" name="mobnoitem">
+                <ion-label color="primary" position="stacked">Mobile No</ion-label>
+                <ion-input
+                    type="number"
+                    placeholder="Mobile No"
+                    data-id="mobno"
+                    placeholder="Mobile No"
+                    class="input_border"
+                    data-readonly="False"
+                    data-projectid="16"
+                    data-fieldname="mobno"
+                    data-eformid="alerttype_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="MOBILENUMBER"
+                    data-validateexp=""
+                    id="mobno"
+                    name="mobno"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="1"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['mobno']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+           <ion-item  name="ragiditem">
+            <ion-label color="primary" position="stacked">Agrno</ion-label>
+             <ion-input
+                    type="number"
+                    placeholder="Agrno"
+                    data-id="ragid"
+                    placeholder="Agrno"
+                    class="input_border"
+                    data-readonly="False"
+                    data-projectid="16"
+                    data-fieldname="ragid"
+                    data-eformid="alerttype_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="ragid"
+                    name="ragid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="2"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['ragid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+        </ion-item>
+            <ion-item name="alerttypeitem">
+                
+                <ion-select
+                    justify="space-between" 
+                    label="Alert Type"
+                    label-placement="floating" 
+                    class="select_input_border"
+                    [(ngModel)]="preset_value['alerttype']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'alerttype')"
+                    data-readonly="False"
+                    data-label="Alert Type"
+                    data-id="alerttype"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvaluedependent=""
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="16"
+                    data-widgettype="select"
+                    data-fieldname="alerttype"
+                    data-eformid="alerttype_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="alerttype"
+                    name="alerttype"
+                    data-displayorder="3"
+                    data-referjson='[{"id": 2420, "title": "Alert Type", "txtabledetailid": "frmalert", "datatype": "Enum_Char", "field_slug": "alerttype", "isdbfield": true, "enum_meta": [{"key": "BORER", "value": "borer", "enum_title_fk": 20}, {"key": "OTHERS", "value": "others", "enum_title_fk": 20}, {"key": "IRRIGATION", "value": "irrigation", "enum_title_fk": 20}, {"key": "NEMATODED", "value": "nematodes", "enum_title_fk": 20}, {"key": "WHITE FLY", "value": "white fly", "enum_title_fk": 20}, {"key": "THRIPS", "value": "thrips", "enum_title_fk": 20}, {"key": "MITES", "value": "mites", "enum_title_fk": 20}, {"key": "VIRUS", "value": "virus", "enum_title_fk": 20}, {"key": "DOWNY  MILDEW", "value": "downy mildew", "enum_title_fk": 20}, {"key": "WILT", "value": "wilt", "enum_title_fk": 20}, {"key": "PLANT POPULATION", "value": "plant population", "enum_title_fk": 20}], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "alerttype", "isnull": true, "is_system_component": false}]'>
+                    <ion-select-option value="borer">BORER </ion-select-option><ion-select-option value="others">OTHERS </ion-select-option><ion-select-option value="irrigation">IRRIGATION </ion-select-option><ion-select-option value="nematodes">NEMATODED </ion-select-option>
+                    <ion-select-option value="white fly">WHITE FLY </ion-select-option><ion-select-option value="thrips">THRIPS </ion-select-option><ion-select-option value="mites">MITES </ion-select-option><ion-select-option value="virus">VIRUS </ion-select-option>
+                    <ion-select-option value="downy mildew">DOWNY MILDEW </ion-select-option><ion-select-option value="wilt">WILT </ion-select-option><ion-select-option value="plant population">PLANT POPULATION </ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item name="affectedareaitem">
+                <ion-label color="primary" position="stacked">Affected Acre (%)</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_border"
+                    data-label="Affected Acre (%)"
+                    data-id="affectedarea"
+                    data-projectid="16"
+                    data-fieldname="affectedarea"
+                    data-eformid="alerttype_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="4"
+                    id="affectedarea"
+                    name="affectedarea"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['affectedarea']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item id="open-date">
+              <ion-label color="primary" position="stacked">Affected Date</ion-label>
+            <ion-input  
+                    id="affecteddate"  
+                    name="affecteddate"      
+                    data-projectid="16"
+                    data-fieldname="affecteddate"
+                    data-eformid="alerttype_txn"
+                    data-id="affecteddate"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-displayorder="5"
+                    data-expression=""
+                    data-validateexp=""
+                    data-readonly="False"
+                    data-format="date"
+                    data-modeOfEntry="tbe"
+                     [(ngModel)]="preset_value['affecteddate']"
+                    data-suggestive="False"
+                    data-label="Affected Date"></ion-input>
+                    
+                    <ion-modal trigger="open-date" show-backdrop="false" id="modaldate">
+                    <ng-template>
+                      <ion-content>
+                        <ion-datetime #Datetime   presentation="date"data-id="docdate"
+                          id="docdate" name="docdate" (ionChange)="dateChange($event, 'affecteddate')"
+                          (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                        </ion-datetime>
+                      </ion-content>
+                    </ng-template>             
+                   </ion-modal>
+
+             
+             </ion-item>
+
+            <ion-item name="remarksitem">
+                <ion-label color="primary" position="stacked">Remarks</ion-label>
+                <ion-input
+                    type="text"
+                  
+                    class="input_border"
+                    data-label="Remarks"
+                    data-id="remarks"
+                    data-projectid="16"
+                    data-fieldname="remarks"
+                    data-eformid="alerttype_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="6"
+                    id="remarks"
+                    name="remarks"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['remarks']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item name="crpstatusitem">
+               
+                <ion-select
+                    justify="space-between" 
+                    label="Status"
+                    label-placement="floating"                   
+                    class="select_input_border"
+                    [(ngModel)]="preset_value['crpstatus']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'crpstatus')"
+                    data-readonly="False"
+                    data-label="Status"
+                    data-id="crpstatus"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvaluedependent=""
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="16"
+                    data-widgettype="select"
+                    data-fieldname="crpstatus"
+                    data-eformid="alerttype_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="crpstatus"
+                    name="crpstatus"
+                    data-displayorder="7"
+                    data-referjson='[{"id": 2447, "title": "Crop Status", "txtabledetailid": "frmalert", "datatype": "Enum_Char", "field_slug": "crpstatus", "isdbfield": true, "enum_meta": [{"key": "Red", "value": "red", "enum_title_fk": 19}, {"key": "Poor", "value": "poor", "enum_title_fk": 19}, {"key": "Medium", "value": "medium", "enum_title_fk": 19}, {"key": "Good", "value": "good", "enum_title_fk": 19}], "maxlength": 10, "no_of_decimal_digits": null, "columnname": "crpstatus", "isnull": true, "is_system_component": false}]'
+                >
+                    <ion-select-option value="red">Red </ion-select-option><ion-select-option value="poor">Poor </ion-select-option><ion-select-option value="medium">Medium </ion-select-option><ion-select-option value="good">Good </ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item class="elementhide" name="ccstatusitem">
+                <ion-label color="primary" position="stacked" hidden>Ccstatus</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="Ccstatus"
+                    class="input_border"
+                    data-label="Ccstatus"
+                    data-id="ccstatus"
+                    data-projectid="16"
+                    data-fieldname="ccstatus"
+                    data-eformid="alerttype_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="8"
+                    id="ccstatus"
+                    name="ccstatus"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['ccstatus']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+
+            <ion-list data-id="imgalert" data-eformid="Alert Type" data-hidden="False" data-displayorder="9" data-modeOfEntry="tbe" data-suggestive="False">
+                 <ion-item  class="ion-align-items-center">
+                            <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >CFC Upload </ion-label>
+                            <ion-button slot="end" fill="clear"  id="imgalert" name="imgalert" (click)="upload($event)">
+                                <ion-icon name="camera"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+               
+                <div *ngIf="takenImage['imgalert']" text-center>
+                    <ion-row>
+                        <ion-col size="6"><img class="image" [src]="takenImage['imgalert']" class="txn-img" align="middle" /></ion-col>
+
+                        <ion-col size="6" class="txn-img-col">
+                            <div class="txn-img-div">FileName:</div>
+                            <div>{{image_meta['imgalert']['filename']}}</div>
+                            <div *ngIf="!image_meta['imgalert']['uploadstatus']" (click)="uploadImage('imgalert')" class="txn-img-div">
+                                <ion-button ion-button icon-start small>
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                    upload
+                                </ion-button>
+                            </div>
+                            <div *ngIf="image_meta['imgalert']['uploadstatus']" (click)="deleteuploadImage('imgalert')" class="txn-img-div">
+                                <ion-button ion-button icon-start small color="danger">
+                                    <ion-icon name="trash"></ion-icon>
+                                    Delete
+                                </ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-list>
+        </ion-list>
+    </div>
+  </ion-card>
+</ion-content>

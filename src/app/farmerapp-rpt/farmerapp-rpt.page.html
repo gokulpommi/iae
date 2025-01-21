@@ -1,0 +1,49 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Farmer List</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+<ion-content >
+  
+   <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button  (click)="paramModal($event,fab)">
+      <ion-icon name="search-outline" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+<ion-card style="border-radius: 10px; box-shadow: none;">
+  <form id="farmerapp_rptForm" name="farmerapp_rptForm">
+    <!-- <div *ngIf="searchDisplay">
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    </div> -->
+   <!--  <div *ngIf="!searchDisplay" class="report_header">
+      <ion-row class="header_align"><h5>List Of Farmers</h5></ion-row>
+    </div> -->
+    <ion-list class="scroll">
+      <table class="table table-striped" id="farmerapp_rpt_tb" name="farmerapp_rpt_tb" >
+        <thead>
+          <th style="text-align:center;" class="thead-span"  data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="farmerid" >Farmer Name</th>
+          <th   [ngStyle]="{ display: 'none' }" data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="npartyname" >npartyname</th>
+          <th   [ngStyle]="{ display: 'none' }" data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="ragid" >ragid</th>
+           <th [ngStyle]="{ display: 'none' }" data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="areaname">Area</th>
+           <th [ngStyle]="{ display: 'none' }" data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="sacres">Acres</th>
+         
+          <th class="thead-span"   data-expandbt="false" data-hidden="false" data-type="button" data-dontrepeat="false" data-icons="ellipsis-horizontal-circle-outline" data-exp="viewreport(farmersdata-rpt,{[]/[ragid,areaname]/[]})" data-ac="F" data-nod="0" data-idt="viewreportbutton" >More Details</th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </ion-list>
+  </form>
+</ion-card>
+</ion-content>
+<ion-footer></ion-footer>

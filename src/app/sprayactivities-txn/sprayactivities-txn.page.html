@@ -1,0 +1,657 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button  style="color: #ffffff;" (click)="backbutton()"
+                    class="toolbar-title"><ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title style="color: #ffffff;" class="toolbar-title">Spary Entry</ion-title>
+        <div *ngIf="(viewMode || isRapidCalling) && (modifyMode || isRapidCalling)" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="modify" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+        <div *ngIf="!viewMode && !isRapidCalling && !modifyMode" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="normal" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="box-shadow: none; ">
+    <div id="myForm" name="myForm" data-eformid="sprayactivities_txn" data-metaSync="false">
+        <ion-list class="card_list_padding">
+            <ion-item name="ragiditem">
+                <ion-label color="dark" class="content_padding" position="stacked">Ragid</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="ragid"
+                    placeholder="Ragid"
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="ragid"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="ragid"
+                    name="ragid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="1"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['ragid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="sprayactivityitem">
+                
+                <ion-select
+                    justify="space-between" 
+                    label="Spray Activity"
+                    label-placement="floating" 
+                    class="input_for_boxed"
+                    [(ngModel)]="preset_value['sprayactivity']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'sprayactivity')"
+                    data-readonly=false
+                    data-label="Spray Activity"
+                    data-id="sprayactivity"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvaluedependent=""
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="16"
+                    data-widgettype="select"
+                    data-fieldname="sprayactivity"
+                    data-eformid="sprayactivities_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="sprayactivity"
+                    name="sprayactivity"
+                    data-displayorder="2"
+                    data-referjson='[{"id": 2396, "title": "Spray Activities", "txtabledetailid": "sprayactivity", "datatype": "Enum_Char", "field_slug": "sprayactivity", "isdbfield": true, "enum_meta": [                    
+                    {"key": "Spraying-5", "value": "Spraying-5", "enum_title_fk": 18}, {"key": "Spraying-4", "value": "Spraying-4", "enum_title_fk": 18}, {"key": "Spraying-3", "value": "Spraying-3", "enum_title_fk": 18}, {"key": "Spraying-2", "value": "Spraying-2", "enum_title_fk": 18}, {"key": "Spraying-1", "value": "Spraying-1", "enum_title_fk": 18}], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "sprayactivity", "isnull": true, "is_system_component": false}]'
+                >
+               
+                <ion-select-option value="Spraying-5">Spraying-5 </ion-select-option>
+                <ion-select-option value="Spraying-4">Spraying-4 </ion-select-option>
+                <ion-select-option value="Spraying-3">Spraying-3 </ion-select-option>
+                <ion-select-option value="Spraying-2">Spraying-2 </ion-select-option>
+                    <ion-select-option value="Spraying-1">Spraying-1 </ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item name="spraydateitem" id="spdate">
+                <ion-label color="dark" class="content_padding" position="stacked">Spray Date</ion-label>
+                <ion-input 
+               
+                   class="input_for_boxed"                   
+                    data-readonly="True"
+                    data-projectid="16"
+                    data-fieldname="spraydate"
+                    data-eformid="sprayactivities_txn"
+                    data-label="Spray Date"
+                    data-id="spraydate"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                     data-sqldbtype="server"
+                    data-sqlvalue="espraydt "
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-displayorder="3"
+                    data-validateexp=""
+                    id="spraydate"
+                    name="spraydate"
+                    readonly="True"
+                    [(ngModel)]="preset_value['spraydate']"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    data-format="date"
+                    
+                   >
+                </ion-input>
+                 <ion-modal trigger="spdate" show-backdrop="false" id="modaldate">
+                  <ng-template>
+                    <ion-content>
+                      <ion-datetime #Datetime   presentation="date"data-id="spraydate"
+                        id="spraydate" name="spraydate" (ionChange)="dateChange($event, 'spraydate')"
+                        (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                      </ion-datetime>
+                    </ion-content>
+                  </ng-template>             
+                 </ion-modal>
+
+                 <!-- <ion-popover trigger="open-date" show-backdrop="false" size="auto">
+                 <ng-template>
+                   <ion-datetime #datepover showDefaultButtons="true" presentation="date" (ionChange)="dateValue = formatDate(datepover.value)"  [(ngModel)]="preset_value.spraydate"  
+                    (ionCancel)="showPicker =false;"                   
+
+                   ></ion-datetime>
+                 </ng-template>
+               </ion-popover> -->
+              <!--  <ion-datetime
+                    displayFormat="DD/MM/YYYY"
+                    class="input_for_boxed"
+                    placeholder="Spray Date"
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="spraydate"
+                    data-eformid="sprayactivities_txn"
+                    data-label="Spray Date"
+                    data-id="spraydate"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-displayorder="3"
+                    data-validateexp=""
+                    id="spraydate"
+                    name="spraydate"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    data-format="date"
+                    [(ngModel)]="preset_value.spraydate"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-datetime>  -->
+            </ion-item>
+            <ion-item name="crpstatusitem">
+               
+                <ion-select
+                    justify="space-between" 
+                    label="Status"
+                    label-placement="floating" 
+                    class="input_for_boxed"
+                    [(ngModel)]="preset_value['crpstatus']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'crpstatus')"
+                    data-readonly=false
+                    data-label="Status"
+                    data-id="crpstatus"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvaluedependent=""
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="16"
+                    data-widgettype="select"
+                    data-fieldname="crpstatus"
+                    data-eformid="sprayactivities_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="crpstatus"
+                    name="crpstatus"
+                    data-displayorder="4"
+                    data-referjson='[{"id": 2400, "title": "Status", "txtabledetailid": "sprayactivity", "datatype": "Enum_Char", "field_slug": "crpstatus", "isdbfield": true, "enum_meta": [{"key": "Red", "value": "red", "enum_title_fk": 19}, {"key": "Poor", "value": "poor", "enum_title_fk": 19}, {"key": "Medium", "value": "medium", "enum_title_fk": 19}, {"key": "Good", "value": "good", "enum_title_fk": 19}], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "crpstatus", "isnull": true, "is_system_component": false}]'
+                >
+                    <ion-select-option value="red">Red </ion-select-option><ion-select-option value="poor">Poor </ion-select-option><ion-select-option value="medium">Medium </ion-select-option><ion-select-option value="good">Good </ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item name="remarksitem">
+                <ion-label color="dark" class="content_padding" position="stacked">Remarks</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_for_boxed"
+                    data-id="remarks"
+                  
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="remarks"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""               readonly=false
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="remarks"
+                    name="remarks"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="5"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['remarks']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-list data-id="sprimg" data-eformid="Spray Activities" data-hidden="False" data-displayorder="6" data-modeOfEntry="tbe" data-suggestive="False">
+
+                 <ion-item  class="ion-align-items-center">
+                            <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >Spraying Image </ion-label>
+                            <ion-button slot="end" fill="clear"  id="sprimg" name="sprimg" (click)="upload($event)">
+                                <ion-icon name="camera"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+               
+                <div *ngIf="takenImage['sprimg']" text-center>
+                    <ion-row>
+                        <ion-col size="6"><img class="image" [src]="takenImage['sprimg']" class="txn-img" align="middle" /></ion-col>
+
+                        <ion-col size="6" class="txn-img-col">
+                            <div class="txn-img-div">FileName:</div>
+                            <div>{{image_meta['sprimg']['filename']}}</div>
+                            <div *ngIf="!image_meta['sprimg']['uploadstatus']" (click)="uploadImage('sprimg')" class="txn-img-div">
+                                <ion-button icon-start small>
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                    upload
+                                </ion-button>
+                            </div>
+                            <div *ngIf="image_meta['sprimg']['uploadstatus']" (click)="deleteuploadImage('sprimg')" class="txn-img-div">
+                                <ion-button    color="danger">
+                                    <ion-icon name="trash"></ion-icon>
+                                    Delete
+                                </ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-list>
+
+
+            <ion-item name="spstatusitem">
+                <ion-label color="dark" class="content_padding" position="stacked">Spstatus</ion-label>
+                <ion-input
+                    type="text"
+                  
+                    class="input_for_boxed"
+                    data-id="spstatus"
+                   
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="spstatus"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="{CLOSE}"
+                    data-validateexp=""
+                    id="spstatus"
+                    name="spstatus"
+                    readonly=false
+                    data-modeOfEntry="tbc"
+                    data-displayorder="7"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['spstatus']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="sowdtitem" id="sodate">
+                <ion-label color="dark" class="content_padding" position="stacked">Sow Dt</ion-label>
+                 <ion-input 
+                
+                  class="input_for_boxed"
+                  
+                    data-readonly="True"
+                    data-projectid="16"
+                    data-fieldname="sowdt"
+                    data-eformid="sprayactivities_txn"
+                    data-label="Sow Dt"
+                    data-id="sowdt"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="sowdt"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-displayorder="8"
+                    data-validateexp=""
+                    id="sowdt"
+                    name="sowdt"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    data-format="date"
+                     [(ngModel)]="preset_value['sowdt']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                   ></ion-input>
+                   
+            </ion-item>
+             <ion-modal trigger="sodate" show-backdrop="false" id="modaldate">
+              <ng-template>
+                <ion-content>
+                  <ion-datetime #Datetime   presentation="date"data-id="sowdt"
+                    id="sowdt" name="sowdt" (ionChange)="dateChange($event, 'sowdt')"
+                   (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                  </ion-datetime>
+                </ion-content>
+              </ng-template>             
+             </ion-modal>
+            <ion-item name="espraydtitem" id="espdate">
+                <ion-label color="dark" class="content_padding" position="stacked">Espray DT</ion-label>
+                <ion-input 
+                class="input_for_boxed"
+                  
+                    data-readonly="True"
+                    data-projectid="16"
+                    data-fieldname="espraydt"
+                    data-eformid="sprayactivities_txn"
+                    data-label="Espray DT"
+                    data-id="espraydt"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="espraydt"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-displayorder="9"
+                    data-validateexp=""
+                    id="espraydt"
+                    name="espraydt"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    data-format="date"
+                    [(ngModel)]="preset_value['espraydt']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    
+                    >
+                        
+                    </ion-input>
+                     <ion-modal trigger="espdate" show-backdrop="false" id="modaldate">
+              <ng-template>
+                <ion-content>
+                  <ion-datetime #Datetime   presentation="date"data-id="espraydt"
+                    id="espraydt" name="espraydt" (ionChange)="dateChange($event, 'espraydt')"
+                   (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                  </ion-datetime>
+                </ion-content>
+              </ng-template>             
+             </ion-modal>
+                    
+            </ion-item>
+            <ion-item name="spraydescitem">
+                
+                <ion-select
+                   justify="space-between" 
+                    label="Spray Description"
+                    label-placement="floating" 
+                    class="input_for_boxed"
+                    [(ngModel)]="preset_value['spraydesc']"
+                    data-referjson='[{"id": 5805, "title": "Spray Desc", "txtabledetailid": "sprayactivity", "datatype": "OneToOneField", "field_slug": "spraydesc", "isdbfield": true, "enum_meta": [], "maxlength": 20, "no_of_decimal_digits": null, "columnname": "spraydesc", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'spraydesc')"
+                    data-readonly=false
+                    data-label="Spray Desc"
+                    data-id="spraydesc"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="spraydesc"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="16"
+                    data-widgettype="select"
+                    data-fieldname="spraydesc"
+                    data-eformid="sprayactivities_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="spraydesc"
+                    name="spraydesc"
+                    data-displayorder="10"
+                    data-componenttype="OneToOneField"
+                >
+                    <ng-container *ngIf="optionsJson['spraydesc'] != null ">
+                        <ion-select-option *ngFor="let item of optionsJson['spraydesc']" value="{{item['spraydesc']}}"> {{item['spraydesc']}} </ion-select-option>
+                    </ng-container>
+                </ion-select>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_spraydesc_cmfsactivityiditem">
+                <ion-label color="dark" class="content_padding" position="stacked">logical_spraydesc_cmfsactivityidcmfsactivityid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_spraydesc_cmfsactivityidcmfsactivityid"
+                    class="input_for_boxed"
+                    data-id="logical_spraydesc_cmfsactivityid"
+                    placeholder="logical_spraydesc_cmfsactivityidcmfsactivityid"
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="logical_spraydesc_cmfsactivityid"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_spraydesc_cmfsactivityid"
+                    name="logical_spraydesc_cmfsactivityid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="11"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_spraydesc_cmfsactivityid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_spraydesc_spraydescitem">
+                <ion-label color="dark" class="content_padding" position="stacked">logical_spraydesc_spraydescspraydesc</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_spraydesc_spraydescspraydesc"
+                    class="input_for_boxed"
+                    data-id="logical_spraydesc_spraydesc"
+                    placeholder="logical_spraydesc_spraydescspraydesc"
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="logical_spraydesc_spraydesc"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_spraydesc_spraydesc"
+                    name="logical_spraydesc_spraydesc"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="12"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_spraydesc_spraydesc']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_spraydesc_targetpestitem">
+                <ion-label color="dark" class="content_padding" position="stacked">logical_spraydesc_targetpesttargetpest</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_spraydesc_targetpesttargetpest"
+                    class="input_for_boxed"
+                    data-id="logical_spraydesc_targetpest"
+                    placeholder="logical_spraydesc_targetpesttargetpest"
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="logical_spraydesc_targetpest"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_spraydesc_targetpest"
+                    name="logical_spraydesc_targetpest"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="13"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_spraydesc_targetpest']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_spraydesc_qtyitem">
+                <ion-label color="dark" class="content_padding" position="stacked">logical_spraydesc_qtyqty</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_spraydesc_qtyqty"
+                    class="input_for_boxed"
+                    data-id="logical_spraydesc_qty"
+                    placeholder="logical_spraydesc_qtyqty"
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="logical_spraydesc_qty"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_spraydesc_qty"
+                    name="logical_spraydesc_qty"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="14"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_spraydesc_qty']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="targetpestitem">
+                <ion-label color="dark" class="content_padding label-disabled" position="stacked">Target Pest</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_for_boxed"
+                    data-id="targetpest"
+                    
+                    data-readonly="True"
+                    data-projectid="16"
+                    data-fieldname="targetpest"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="logical_spraydesc_targetpest"
+                    data-validateexp=""
+                    id="targetpest"
+                    name="targetpest"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="15"
+                    data-suggestive="False"
+                    disabled
+                    [(ngModel)]="preset_value['targetpest']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="sqtyitem">
+                <ion-label color="dark" class="content_padding" position="stacked">Qty</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="sqty"
+                  
+                    data-readonly="True"
+                    data-projectid="16"
+                    data-fieldname="sqty"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="logical_spraydesc_qty"
+                    data-validateexp=""
+                    id="sqty"
+                    name="sqty"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="16"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['sqty']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="actqtyitem">
+                <ion-label color="dark" class="content_padding" position="stacked">Act Qty</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="actqty"
+                  
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="actqty"
+                    data-eformid="sprayactivities_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="actqty"
+                    name="actqty"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="17"
+                    data-suggestive="True"
+                    [(ngModel)]="preset_value['actqty']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-card>
+</ion-content>

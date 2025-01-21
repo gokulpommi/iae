@@ -1,0 +1,109 @@
+<ion-content padding>
+
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="closeModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+
+  <div>
+    <form [id]="rptName+'paramForm'" [name]="rptName+'paramForm'">
+      <ion-list lines="none">
+        <div *ngFor="let param of paramsArray">
+          <div *ngIf="param['wt'] == 'text'">
+            <ion-item [ngStyle]="{ display: param['ih'] === 'True' ? 'none' : 'table-cell' }">
+              
+              <ion-input  justify="space-between" 
+                       label="param['cap']"
+                        label-placement="floating" [(ngModel)]="preset_value[param.idt]" [id]="param['idt']"
+                [name]="param['idt']" [attr.name]="param['idt']" [attr.data-id]="param['idt']"
+                [attr.data-widgettype]="param['wt']" [attr.data-sqlvalue]="param['vf']"
+                [attr.data-fieldname]="param['idt']" [attr.data-eformid]="param['rep']" [attr.data-hidden]="param['ih']"
+                [attr.data-expression]="param['exp']" [attr.data-cf]="param['cf']" (ionFocus)="onFocus($event)"
+                (ionBlur)="checkBlur($event)"></ion-input>
+            </ion-item>
+          </div>
+
+          <div *ngIf="param['wt'] == 'number'">
+            <ion-item [ngStyle]="{ display: param['ih'] === 'True' ? 'none' : 'table-cell' }">
+              <ion-label color="dark"  position="floating">{{param['cap']}}</ion-label>
+              <ion-input type="number" [(ngModel)]="preset_value[param.idt]"
+                [id]="param['idt']" [name]="param['idt']" [attr.name]="param['idt']" [attr.data-id]="param['idt']"
+                [attr.data-widgettype]="param['wt']" [attr.data-sqlvalue]="param['vf']"
+                [attr.data-fieldname]="param['idt']" [attr.data-eformid]="param['rep']" [attr.data-hidden]="param['ih']"
+                [attr.data-expression]="param['exp']" [attr.data-cf]="param['cf']" (ionFocus)="onFocus($event)"
+                (ionBlur)="checkBlur($event)"></ion-input>
+            </ion-item>
+          </div>
+
+          <div *ngIf="param['wt'] == 'date'">
+            <ion-item lines="none" id="{{param['cap']}}" [ngStyle]="{ display: param['ih'] === 'True' ? 'none' : 'table-cell' }">
+              <ion-label color="primary" position="floating">{{param['cap']}}</ion-label>
+              <ion-input [(ngModel)]="preset_value[param.idt]" [id]="param['idt']" [name]=" param['idt'] "
+                [attr.name]="param['idt']" [attr.data-id]="param['idt']" [attr.data-fieldname]="param['idt']"
+                [attr.data-eformid]="param['rep']" [attr.data-hidden]="param['ih']"
+                [attr.data-expression]="param['exp']" [attr.data-widgettype]="param['wt']" [attr.data-cf]="param['cf']"
+                (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)">
+
+              </ion-input>
+            </ion-item>
+            <ion-modal id="modaldate" trigger="{{param['cap']}}" show-backdrop="false">
+              <ng-template>
+                <ion-content>
+                  <ion-datetime #datepover presentation="date" class="input_date" size="cover" showDefaultButtons="true"
+                    (ionChange)="dateChange($event, param.idt)"></ion-datetime>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+
+          </div>
+
+          <div *ngIf="param['wt'] == 'dynamic_popup'">
+            <ion-item [hidden]="param['ih'] == 'True' ? true : false">
+             
+              <ion-input justify="space-between" 
+                       [label]="param['cap']"
+                        label-placement="floating" readonly [(ngModel)]="dynamicpopup_key_value_array[param.idt]" 
+                [id]="param['idt']" [name]="param['idt']" [attr.name]="param['idt']" [attr.data-id]="param['idt']"
+                [attr.data-widgettype]="param['wt']" [attr.data-sqlvalue]="param['vf']"
+                [attr.data-fieldname]="param['idt']" [attr.data-eformid]="param['rep']" [attr.data-hidden]="param['ih']"
+                [attr.data-sqlvaluedependent]="param['isdep']" [attr.data-expression]="param['exp']"
+                [attr.data-cf]="param['cf']" (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"></ion-input>
+            </ion-item>
+          </div>
+
+          <div *ngIf="param['wt'] == 'select'">
+            <ion-item [hidden]="param['ih'] == 'True' ? true : false" name="param['idt']item" >
+              
+              <ion-select justify="space-between" 
+                       [label]="param['cap']"
+                        label-placement="floating" color="primary"  class="select_input_border"
+                [(ngModel)]="preset_value[param.idt]" (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"
+                (ionChange)="checkChange($event,param.idt)" [id]="param['idt']" [name]="param['idt']"
+                [attr.name]="param['idt']" [attr.data-id]="param['idt']" [attr.data-hidden]="param['ih']"
+                [attr.data-sqlvaluedependent]="param['isdep']" [attr.data-expression]="param['exp']"
+                [attr.data-widgettype]="param['wt']" [attr.data-fieldname]="param['idt']"
+                [attr.data-eformid]="param['rep']" [attr.data-cf]="param['cf']">
+                <ng-container *ngIf="optionsJson[param.idt] != null ">
+                  <ion-select-option *ngFor="let item of optionsJson[param.idt]" value="{{item[param.vf]}}">
+                    {{item[param.df]}} </ion-select-option>
+                </ng-container>
+              </ion-select>
+            </ion-item>
+          </div>
+
+        </div>
+        <div style="display: flex;
+              justify-content: center;">
+          <ion-button shape="round" expand="block" block ion-button type="submit" (click)="viewReport()">View
+            Report</ion-button>
+        </div>
+      </ion-list>
+
+    </form>
+  </div>
+</ion-content>

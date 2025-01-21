@@ -1,0 +1,488 @@
+[
+  {
+    "tt": "Alert Type",
+    "vt": "ng",
+    "st": "both",
+    "pt": "farm_erapp",
+    "dpt": "FARMERPMYSQL",
+    "idt": "alerttype_txn",
+     "didt": "alerttype_txn",
+    "exp": null,
+    "pos": "\"\"",
+    "gp_op": null,
+    "tran_meta": [
+      {
+        "tx": "Alert",
+        "prm_meta": [
+          {
+            "tt": "FRM Alerts",
+            "tb": "frmalert",
+            "rt": "one-to-many",
+            "ispm": "True",
+            "tb_s": "frmalert"
+          }
+        ]
+      }
+    ],
+    "cont_meta": [
+      {
+        "tt": "ALERT",
+        "cap": "Alert Type",
+        "ctype": "list",
+        "itype": "stacked",
+        "pt": null,
+        "exp": "{}",
+        "do": 1,
+        "db": "frmalert",
+        "idt": "alert",
+        "cn_gp": null,
+        "children": [],
+        "comp_meta": [
+          {
+            "id": 4218,
+            "tt": "mobno",
+            "cap": "Mobile No",
+            "iro": "False",
+            "ih": "True",
+            "ire": "False",
+            "ad": "True",
+            "wt": "number",
+            "exp": "MOBILENUMBER",
+            "vep": null,
+            "sql": null,
+            "do": 1,
+            "idt": "mobno",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 5745,
+                "title": "Mobile Number",
+                "txtabledetailid": "frmalert",
+                "datatype": "IntegerField",
+                "field_slug": "mobno",
+                "isdbfield": true,
+                "enum_meta": [],
+                "maxlength": 30,
+                "no_of_decimal_digits": 0,
+                "columnname": "mobno",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "IntegerField",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          },
+          {
+            "id": 749,
+            "tt": "ragid",
+            "cap": "Agrno",
+            "iro": "False",
+            "ih": "False",
+            "ire": "False",
+            "ad": "True",
+            "wt": "number",
+            "exp": null,
+            "vep": null,
+            "sql": null,
+            "do": 2,
+            "idt": "ragid",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 2425,
+                "title": "Agrno",
+                "txtabledetailid": "frmalert",
+                "datatype": "CharField",
+                "field_slug": "ragid",
+                "isdbfield": true,
+                "enum_meta": [],
+                "maxlength": 100,
+                "no_of_decimal_digits": 0,
+                "columnname": "ragid",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "CharField",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          },
+          {
+            "id": 744,
+            "tt": "alerttype",
+            "cap": "Alert Type",
+            "iro": "False",
+            "ih": "False",
+            "ire": "False",
+            "ad": "True",
+            "wt": "select",
+            "exp": null,
+            "vep": null,
+            "sql": null,
+            "do": 3,
+            "idt": "alerttype",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 2420,
+                "title": "Alert Type",
+                "txtabledetailid": "frmalert",
+                "datatype": "Enum_Char",
+                "field_slug": "alerttype",
+                "isdbfield": true,
+                "enum_meta": [
+                  {
+                    "key": "BORER",
+                    "value": "borer",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "OTHERS",
+                    "value": "others",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "IRRIGATION",
+                    "value": "irrigation",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "NEMATODED",
+                    "value": "nematodes",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "WHITE FLY",
+                    "value": "white fly",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "THRIPS",
+                    "value": "thrips",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "MITES",
+                    "value": "mites",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "VIRUS",
+                    "value": "virus",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "DOWNY  MILDEW",
+                    "value": "downy mildew",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "WILT",
+                    "value": "wilt",
+                    "enum_title_fk": 20
+                  },
+                  {
+                    "key": "PLANT POPULATION",
+                    "value": "plant population",
+                    "enum_title_fk": 20
+                  }
+                ],
+                "maxlength": 100,
+                "no_of_decimal_digits": 0,
+                "columnname": "alerttype",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "CharField",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          },
+          {
+            "id": 745,
+            "tt": "affectedarea",
+            "cap": "Affected Acre (%)",
+            "iro": "False",
+            "ih": "False",
+            "ire": "False",
+            "ad": "True",
+            "wt": "text",
+            "exp": null,
+            "vep": null,
+            "sql": null,
+            "do": 4,
+            "idt": "affectedarea",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 2421,
+                "title": "Affected Area",
+                "txtabledetailid": "frmalert",
+                "datatype": "CharField",
+                "field_slug": "affectedarea",
+                "isdbfield": true,
+                "enum_meta": [],
+                "maxlength": 100,
+                "no_of_decimal_digits": 0,
+                "columnname": "affectedarea",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "CharField",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          },
+          {
+            "id": 746,
+            "tt": "affecteddate",
+            "cap": "Affected Date",
+            "iro": "False",
+            "ih": "False",
+            "ire": "False",
+            "ad": "True",
+            "wt": "date",
+            "exp": null,
+            "vep": null,
+            "sql": null,
+            "do": 5,
+            "idt": "affecteddate",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 2422,
+                "title": "Affected Date",
+                "txtabledetailid": "frmalert",
+                "datatype": "DateField",
+                "field_slug": "affecteddate",
+                "isdbfield": true,
+                "enum_meta": [],
+                "maxlength": 50,
+                "no_of_decimal_digits": 0,
+                "columnname": "affecteddate",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "DateField",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          },
+          {
+            "id": 747,
+            "tt": "remarks",
+            "cap": "Remarks",
+            "iro": "False",
+            "ih": "False",
+            "ire": "False",
+            "ad": "True",
+            "wt": "text",
+            "exp": null,
+            "vep": null,
+            "sql": null,
+            "do": 6,
+            "idt": "remarks",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 2423,
+                "title": "Remarks",
+                "txtabledetailid": "frmalert",
+                "datatype": "CharField",
+                "field_slug": "remarks",
+                "isdbfield": true,
+                "enum_meta": [],
+                "maxlength": 250,
+                "no_of_decimal_digits": 0,
+                "columnname": "remarks",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "CharField",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          },
+          {
+            "id": 768,
+            "tt": "crpstatus",
+            "cap": "Status",
+            "iro": "False",
+            "ih": "False",
+            "ire": "True",
+            "ad": "True",
+            "wt": "select",
+            "exp": null,
+            "vep": null,
+            "sql": null,
+            "do": 7,
+            "idt": "crpstatus",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 2447,
+                "title": "Crop Status",
+                "txtabledetailid": "frmalert",
+                "datatype": "Enum_Char",
+                "field_slug": "crpstatus",
+                "isdbfield": true,
+                "enum_meta": [
+                  {
+                    "key": "Red",
+                    "value": "red",
+                    "enum_title_fk": 19
+                  },
+                  {
+                    "key": "Poor",
+                    "value": "poor",
+                    "enum_title_fk": 19
+                  },
+                  {
+                    "key": "Medium",
+                    "value": "medium",
+                    "enum_title_fk": 19
+                  },
+                  {
+                    "key": "Good",
+                    "value": "good",
+                    "enum_title_fk": 19
+                  }
+                ],
+                "maxlength": 10,
+                "no_of_decimal_digits": null,
+                "columnname": "crpstatus",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "Enum_Char",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          },
+          {
+            "id": 1556,
+            "tt": "ccstatus",
+            "cap": "Ccstatus",
+            "iro": "False",
+            "ih": "True",
+            "ire": "False",
+            "ad": "True",
+            "wt": "text",
+            "exp": null,
+            "vep": null,
+            "sql": null,
+            "do": 8,
+            "idt": "ccstatus",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 3088,
+                "title": "CCstatus",
+                "txtabledetailid": "frmalert",
+                "datatype": "CharField",
+                "field_slug": "ccstatus",
+                "isdbfield": true,
+                "enum_meta": [],
+                "maxlength": 100,
+                "no_of_decimal_digits": 0,
+                "columnname": "ccstatus",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "CharField",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          },
+          {
+            "id": 748,
+            "tt": "imgalert",
+            "cap": "CFC Upload",
+            "iro": "False",
+            "ih": "False",
+            "ire": "True",
+            "ad": "True",
+            "wt": "image",
+            "exp": null,
+            "vep": null,
+            "sql": null,
+            "do": 9,
+            "idt": "imgalert",
+            "tid": "91",
+            "cjson": [
+              {
+                "id": 2424,
+                "title": "Img Alert",
+                "txtabledetailid": "frmalert",
+                "datatype": "CharField",
+                "field_slug": "imgalert",
+                "isdbfield": true,
+                "enum_meta": [],
+                "maxlength": 100,
+                "no_of_decimal_digits": 0,
+                "columnname": "imgalert",
+                "isnull": true,
+                "is_system_component": false
+              }
+            ],
+            "moe": "tbe",
+            "sug": "False",
+            "ct": "CharField",
+            "isdep": "False",
+            "isd": "False",
+            "df": "False"
+          }
+        ]
+      }
+    ],
+    "eupdate_meta": [],
+    "epost_meta": [],
+    "action_meta": [
+      {
+        "at": "Save",
+        "save": {
+          "tt": "Save",
+          "exp": "",
+          "pos": "",
+          "icls": "done-all",
+          "u_con": null
+        },
+        "new": "",
+        "cancel": "",
+        "delete": "",
+        "search": "",
+        "printformat": "",
+        "googlesync": ""
+      }
+    ],
+    "sms_config": null,
+    "email_config": null,
+    "epopup_meta": [],
+    "synctype": false
+  }
+]

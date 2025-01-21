@@ -1,0 +1,78 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Status Pending Update</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+  <ion-card style="border-radius: 10px;">
+    <form id="statusupdatepending_rptForm" name="statusupdatepending_rptForm">
+        <div *ngIf="!searchDisplay" class="report_header">
+            <ion-row class="header_align"><h5>Status Update Pending</h5></ion-row>
+            <ion-card class="elementhide">
+                <ion-card-content>
+                    <form id="statusupdatepending_rptparamForm" name="statusupdatepending_rptparamForm">
+                        <ion-list>
+                            <ion-item hidden>
+                                <ion-label color="dark" stacked>mobno</ion-label>
+                                <ion-input
+                                    type="number"
+                                    [(ngModel)]="preset_value['mobno']"
+                                    placeholder="mobno"
+                                    id="mobno"
+                                    name="mobno"
+                                    data-id="mobno"
+                                    data-widgettype="number"
+                                    data-sql=""
+                                    data-sqlvalue=""
+                                    data-fieldname="mobno"
+                                    data-eformid="statusupdatepending_rpt"
+                                    data-hidden="True"
+                                    data-expression="MOBILENUMBER"
+                                    data-widgettype="number"
+                                    data-cf="False"
+                                    hidden
+                                    
+                                    (ionBlur)="checkBlur($event)"
+                                ></ion-input>
+                            </ion-item>
+                        </ion-list>
+                    </form>
+                </ion-card-content>
+                <ion-row class="cardfooter">
+                    <ion-col>
+                        <ion-buttons end>
+                            <ion-item><button item-end block ion-button type="submit" color="secondary" small (click)="getreport()">View Report</button></ion-item>
+                        </ion-buttons>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </div>
+        <ion-list class="scroll">
+            <table class="table table-striped" id="statusupdatepending_rpt_tb" name="statusupdatepending_rpt_tb">
+                <thead>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="ccstatusid">ccstatusid</th>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="sowdt">sowdt</th>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="expyld">expyld</th>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="rcdyld">rcdyld</th>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="devper">devper</th>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="prevstatus">prevstatus</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="farmername">Farmer Name</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </ion-list>
+    </form>
+  </ion-card>
+</ion-content>

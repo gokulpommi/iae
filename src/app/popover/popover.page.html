@@ -1,0 +1,16 @@
+
+
+<ion-content>
+<ion-list no-lines style="margin:5px">
+  <div *ngIf="!searchEnabled">
+    <div *ngFor="let sub of subMenu">
+      <ion-button ion-item (click)="redirectpage('redirect',sub)">{{sub.cap}}</ion-button>
+    </div>
+    <ion-button ion-item (click)="logout()">Log Out</ion-button>
+  </div>
+  <div *ngIf="searchEnabled">
+    <ion-button ion-item (click)="view('view')">View</ion-button>
+    <ion-button ion-item (click)="view('modify')">Modify</ion-button></div></ion-list>
+</ion-content>
+
+

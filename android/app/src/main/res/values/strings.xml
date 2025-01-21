@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">India Agro</string>
+    <string name="title_activity_main">India Agro</string>
+    <string name="package_name">com.ninfo.farmpm</string>
+    <string name="custom_url_scheme">com.ninfo.farmpm</string>
+     <string name="plugin_bgloc_account_name">$ACCOUNT_NAME</string>
+  <string name="plugin_bgloc_account_type">$ACCOUNT_TYPE</string>
+  <string name="plugin_bgloc_content_authority">$CONTENT_AUTHORITY</string>
+</resources>

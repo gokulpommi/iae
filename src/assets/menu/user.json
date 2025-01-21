@@ -1,0 +1,79 @@
+{
+    "menus": [
+        {
+            "name": "",
+            "items": [
+
+                {
+                    "do": "1",
+                    "tit": "Sowing Entry",
+                    "view": "farmmstone-txn",
+                    "cls": { "type": "img", "name": "assets/icon/sowing-seeds.png" }
+                },
+                 
+                {
+                    "do": "2",
+                    "tit": "Agreement Pending",
+                    "view": "agreementpending-rpt",
+                    "cls": { "type": "img", "name": "assets/icon/file.png" }
+                },
+                {
+                    "do": "3",
+                    "tit": "Farmer List",
+                    "view": "farmerapp-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/farmer.png" }
+                },
+                {
+                    "do": "4",
+                    "tit": "Geo Area Pending",
+                    "view": "geoandareapending-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/location.png" }
+                },
+                {
+                    "do": "5",
+                    "tit": "Attendance ",
+                    "view": "attandance-txn",
+                     "cls": { "type": "img", "name": "assets/icon/tap.png" }
+                },
+                {
+                    "do": "6",
+                    "tit": "Status Update Pending",
+                    "view": "statuspendingupdate-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/update.png" }
+                },
+                {
+                    "do": "7",
+                    "tit": "Spray Update",
+                    "view": "sprayupdate-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/fertilizer.png" }
+                },
+                {
+                    "do": "8",
+                    "tit": "Farmer Analysis",
+                    "view": "farmeranalysis-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/plant.png" }
+                },
+                {
+                    "do": "9",
+                    "tit": "FAQ",
+                    "view": "faq-rpt",
+                     "cls": { "type": "img", "name": "assets/icon/faq.png" }
+                }
+                 
+               
+                
+            ]
+        }
+        
+        
+       
+    ]
+}
+
+
+
+
+
+
+
+

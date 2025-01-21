@@ -1,0 +1,40 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Farm Status</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+  <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button  (click)="paramModal($event,fab)">
+      <ion-icon name="search-outline" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+    <form id="frmbookingstatusupdate_rptForm" name="frmbookingstatusupdate_rptForm">
+      
+        <ion-list class="scroll">
+            <table class="table" id="frmbookingstatusupdate_rpt_tb" name="frmbookingstatusupdate_rpt_tb">
+                <thead>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="farmername">farmername</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="acres">acres</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="fathername">fathername</th>
+                     <th  data-expandbt="false" data-hidden="false" data-type="button" data-dontrepeat="false" data-icons="create-sharp" data-exp="viewtxn(farmbooking-txn,M,frmbooking1id)" data-ac="F" data-nod="0" data-idt="edit" >Edit</th>
+                    <th data-expandbt="true" style="width: 10%;"></th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </ion-list>
+    </form>
+</ion-content>

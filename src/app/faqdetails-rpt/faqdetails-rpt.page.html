@@ -1,0 +1,48 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">FAQ Details</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+    <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="paramModal($event,fab)">
+            <ion-icon name="search-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-card style="border-radius: 10px;">
+        <form id="faqdetails_rptForm" name="faqdetails_rptForm">
+            <div *ngIf="!searchDisplay" class="report_header">
+                <ion-row class="header_align"><h5>FAQ Details</h5></ion-row>
+            </div>
+            <ion-list class="scroll">
+                <table class="table table-striped" id="faqdetails_rpt_tb" name="faqdetails_rpt_tb">
+                    <thead>
+                        <th hidden data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="cmfsactivityid">cmfsactivityid</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="fsstage">Crop Stage</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="fsdays">Period</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="targetpest">Target Pest</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="spraydesc">Spray Desc</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="phi">PHI</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="dosage">Dosage</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="qty">Qty</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="cost">Cost</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </ion-list>
+        </form>
+    </ion-card>
+</ion-content>
+

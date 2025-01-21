@@ -1,0 +1,50 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Farmer Analysis</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+    <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="paramModal($event,fab)">
+            <ion-icon name="search-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-card style="border-radius: 10px;">
+    <form id="farmeranalysis_rptForm" name="farmeranalysis_rptForm">
+        <div *ngIf="!searchDisplay" class="report_header">
+            <ion-row class="header_align"><h5>Farmer Analysis</h5></ion-row>
+        </div>
+        <ion-list class="scroll">
+            <table class="table table-striped" id="farmeranalysis_rpt_tb" name="farmeranalysis_rpt_tb">
+                <thead>
+                    <th style="text-align: center;" data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="farmername">Farmer Name</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="sowdt">Sow Dt</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="village">Village</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="3" data-idt="acres">Acres</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="crop">Crop</th>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="opbal">OpBal</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="cropval">Crop Val</th>
+                    <th hidden data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="bonus_amt">Bonus Amt</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="inputval">Input Val</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="amtpaid">Amt Paid</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="adjamt">Adj Amt</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="cl_bal">Closing Bal</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </ion-list>
+    </form>
+</ion-card>
+</ion-content>

@@ -1,0 +1,40 @@
+:host {
+
+  
+
+    ion-toolbar {
+        --background: #007f70;
+    }
+  .item-interactive.ion-invalid {
+    --highlight-background: #4285F4 !important;
+  }
+
+  .item-interactive.ion-valid {
+    --highlight-background: #4285F4 !important;
+  }
+
+}
+
+ion-list {
+  background: transparent;
+  padding: 0px;
+}
+
+ion-label{
+  color: black !important;
+}
+
+ion-item {
+  --border-radius: 12px;
+  --background: #efefef;
+  margin-top: 10px;
+  padding-left: 10px;
+    padding-right: 10px;
+}
+
+ion-segment-button {
+
+  --indicator-color: orangered;
+  --color-checked: white;
+
+}

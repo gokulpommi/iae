@@ -1,0 +1,166 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button  style="color: #ffffff;" (click)="backbutton()"
+                    class="toolbar-title"><ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title style="color: #ffffff;" class="toolbar-title">Fertilizer Update</ion-title>
+        <div *ngIf="(viewMode || isRapidCalling) && (modifyMode || isRapidCalling)" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="modify" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+        <div *ngIf="!viewMode && !isRapidCalling && !modifyMode" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="normal" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-card style="box-shadow: none; ">
+    <div id="myForm" name="myForm" data-eformid="fertilizerupdate_txn" data-metaSync="false">
+        <ion-list class="card_list_padding">
+            <ion-item name="ragiditem">
+                <ion-label color="primary" class="content_padding" position="stacked">Ragid</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="ragid"
+                   
+                    data-readonly="False"
+                    data-projectid="16"
+                    data-fieldname="ragid"
+                    data-eformid="fertilizerupdate_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="ragid"
+                    name="ragid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="1"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['ragid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="fertilizerdescitem">
+                <ion-label color="primary" class="content_padding" position="stacked">Fertilizer</ion-label>
+                <ion-input
+                    type="text"
+                    
+                    class="input_for_boxed"
+                    data-id="fertilizerdesc"                  
+                    data-readonly=false
+                    data-projectid="16"
+                    data-fieldname="fertilizerdesc"
+                    data-eformid="fertilizerupdate_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="fertilizerdesc"
+                    name="fertilizerdesc"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="2"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['fertilizerdesc']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="fertdateitem" id="ferttdate">
+                <ion-label color="primary" class="content_padding" position="stacked">Fertilizer Date</ion-label>
+                <ion-input
+                    
+                    class="input_for_boxed"
+                    
+                    data-readonly="False"
+                    data-projectid="16"
+                    data-fieldname="fertdate"
+                    date-eformid="fertilizerupdate_txn"
+                    data-label="Fertilizer Date"
+                    data-id="fertdate"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-displayorder="3"
+                    data-validateexp=""
+                    id="fertdate"
+                    name="fertdate"
+                    [(ngModel)]="preset_value['fertdate']"                  
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    data-format="date"
+                   
+                ></ion-input>
+                      <ion-modal trigger="ferttdate" show-backdrop="false" id="modaldate">
+              <ng-template>
+                <ion-content>
+                  <ion-datetime #Datetime   presentation="date"data-id="docdate"
+                    id="docdate" name="docdate" (ionChange)="dateChange($event, 'fertdate')"
+                    (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                  </ion-datetime>
+                </ion-content>
+              </ng-template>             
+             </ion-modal>
+
+                
+            </ion-item>
+            <ion-list data-id="fertimg" data-eformid="Fertilizer Update" data-hidden="False" data-displayorder="4" data-modeOfEntry="tbe" data-suggestive="False">
+                 <ion-item  class="ion-align-items-center">
+                            <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >Fertilizer Image </ion-label>
+                            <ion-button slot="end" fill="clear"  id="fertimg" name="fertimg" (click)="upload($event)">
+                                <ion-icon name="camera"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+
+
+                <div *ngIf="takenImage['fertimg']" text-center>
+                    <ion-row>
+                        <ion-col size="6">
+                            <img class="image" [src]="takenImage['fertimg']" class="txn-img" align="middle" /></ion-col>
+
+                        <ion-col size="6" class="txn-img-col">
+                            <div class="txn-img-div">FileName:</div>
+                            <div>{{image_meta['fertimg']['filename']}}</div>
+                            <div *ngIf="!image_meta['fertimg']['uploadstatus']" (click)="uploadImage('fertimg')" class="txn-img-div">
+                                 <ion-button icon-start small>
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                    upload
+                                </ion-button>
+                            </div>
+                            <div *ngIf="image_meta['fertimg']['uploadstatus']" (click)="deleteuploadImage('fertimg')" class="txn-img-div">
+                                 <ion-button    color="danger">
+                                    <ion-icon name="trash"></ion-icon>
+                                    Delete
+                                </ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-list>
+              <ion-item  name="fertqtyitem"><ion-label color="primary" class="content_padding" position="stacked">Fertilizer Qty</ion-label><ion-input type="number" class="input_for_boxed" data-id="fertqty"  data-readonly=false data-projectid="16" data-fieldname="fertqty" data-eformid="fertilizerupdate_txn" data-required="False" data-allowduplicate="False" data-hidden="False" data-sqldbtype="" data-sqlvalue="" data-sqlvaluedependent="False" data-expression="" data-validateexp="" id="fertqty" name="fertqty" readonly=false data-modeOfEntry="tbe" data-displayorder="5" data-suggestive="False"   [(ngModel)]="preset_value['fertqty']" (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"></ion-input></ion-item>
+        </ion-list>
+    </div>
+</ion-card>
+</ion-content>

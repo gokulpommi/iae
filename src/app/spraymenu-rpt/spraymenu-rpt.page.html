@@ -1,0 +1,47 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Spray Activities</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+  <ion-card style="border-radius: 10px;">
+     <form id="spraymenu_rptForm" name="spraymenu_rptForm">
+        <div *ngIf="!searchDisplay" class="report_header">
+            <ion-row class="header_align"><h5 style="text-align:center;">Spray Menu</h5></ion-row>
+        </div>
+        <div id="displayreport">
+             <ion-list *ngFor="let active of names; let i = index" id="activerow-{{i}}">
+                <h2 style="text-align: center;">{{ active.ragid }}</h2>
+                
+                <ion-row class="ion-justify-content-center ion-align-items-center">
+                    <ion-col size="auto">
+                        <ion-button id="spray_entry" (click)="displayReportbtn($event,'spray_entry',i)"><ion-icon name="add" class="tb-icon-bt"></ion-icon>Spray Entry
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                
+                <ion-row class="ion-justify-content-center ion-align-items-center">
+                    <ion-col size="auto">
+                        <ion-button id="report" (click)="displayReportbtn($event, 'report', i)">
+                            <ion-icon name="albums" class="tb-icon-bt"></ion-icon>Report
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-list>
+         
+        </div>
+    </form>
+  </ion-card>
+</ion-content>

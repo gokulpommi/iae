@@ -1,0 +1,1567 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button  style="color: #ffffff;" (click)="backbutton()"
+                    class="toolbar-title"><ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title style="color: #ffffff;" class="toolbar-title">Sowing Entry</ion-title>
+        <div *ngIf="(viewMode || isRapidCalling) && (modifyMode || isRapidCalling)" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="modify" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+        <div *ngIf="!viewMode && !isRapidCalling && !modifyMode" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="normal" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"> 
+  <ion-card style="box-shadow: none;">
+    <div id="myForm" name="myForm" data-eformid="farmmstone_txn" data-metaSync="false">
+        <ion-list class="card_list_padding">
+            <ion-item class="elementhide" name="mobilenoitem">
+                <ion-label color="dark" class="content_padding" position="floating">Mobile Number</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="mobileno"
+                    placeholder="Mobile Number"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="mobileno"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="MOBILENUMBER"
+                    data-validateexp=""
+                    id="mobileno"
+                    name="mobileno"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="1"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['mobileno']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="branchitem">
+                
+                <ion-select
+                    justify="space-between" 
+                    label="Branch Id"
+                    label-placement="floating"
+                    class="input_for_boxed"
+                    [(ngModel)]="preset_value['branch']"
+                    data-referjson='[{"id": 3025, "title": "Branch", "txtabledetailid": "frmmast1", "datatype": "OneToOneField", "field_slug": "branch", "isdbfield": true, "enum_meta": [], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "branch", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'branch')"
+                    data-readonly="True"
+                    data-label="Branch"
+                    data-id="branch"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="branchmastid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="31"
+                    data-widgettype="select"
+                    data-fieldname="branch"
+                    data-eformid="farmmstone_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="branch"
+                    name="branch"
+                    data-displayorder="2"
+                    data-componenttype="OneToOneField"
+                >
+                    <ng-container *ngIf="optionsJson['branch'] != null ">
+                        <ion-select-option *ngFor="let item of optionsJson['branch']" value="{{item['branchmastid']}}"> {{item['branchname']}} </ion-select-option>
+                    </ng-container>
+                </ion-select>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_branch_branchmastiditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_branch_branchmastidbranchmastid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_branch_branchmastidbranchmastid"
+                    class="input_for_boxed"
+                    data-id="logical_branch_branchmastid"
+                    placeholder="logical_branch_branchmastidbranchmastid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_branch_branchmastid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_branch_branchmastid"
+                    name="logical_branch_branchmastid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="3"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_branch_branchmastid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_branch_branchnameitem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_branch_branchnamebranchname</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_branch_branchnamebranchname"
+                    class="input_for_boxed"
+                    data-id="logical_branch_branchname"
+                    placeholder="logical_branch_branchnamebranchname"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_branch_branchname"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_branch_branchname"
+                    name="logical_branch_branchname"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="4"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_branch_branchname']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="areanameitem">
+               
+                <ion-select
+                    justify="space-between" 
+                    label="Area Name"
+                    label-placement="floating"
+                    class="input_for_boxed"
+                    [(ngModel)]="preset_value['areaname']"
+                    data-referjson='[{"id": 2249, "title": "Areaname", "txtabledetailid": "frmmast1", "datatype": "OneToOneField", "field_slug": "areaname", "isdbfield": true, "enum_meta": [], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "areaname", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'areaname')"
+                    data-readonly=false
+                    data-label="Area Name"
+                    data-id="areaname"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="amasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="31"
+                    data-widgettype="select"
+                    data-fieldname="areaname"
+                    data-eformid="farmmstone_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="areaname"
+                    name="areaname"
+                    data-displayorder="5"
+                    data-componenttype="OneToOneField"
+                >
+                    <ng-container *ngIf="optionsJson['areaname'] != null ">
+                        <ion-select-option *ngFor="let item of optionsJson['areaname']" value="{{item['amasterid']}}"> {{item['areaname']}} </ion-select-option>
+                    </ng-container>
+                </ion-select>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_areaname_amasteriditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_areaname_amasteridamasterid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_areaname_amasteridamasterid"
+                    class="input_for_boxed"
+                    data-id="logical_areaname_amasterid"
+                    placeholder="logical_areaname_amasteridamasterid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_areaname_amasterid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_areaname_amasterid"
+                    name="logical_areaname_amasterid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="6"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_areaname_amasterid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_areaname_areanameitem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_areaname_areanameareaname</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_areaname_areanameareaname"
+                    class="input_for_boxed"
+                    data-id="logical_areaname_areaname"
+                    placeholder="logical_areaname_areanameareaname"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_areaname_areaname"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_areaname_areaname"
+                    name="logical_areaname_areaname"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="7"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_areaname_areaname']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_areaname_areasiditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_areaname_areasid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_areaname_areasid"
+                    class="input_for_boxed"
+                    data-id="logical_areaname_areasid"
+                    placeholder="logical_areaname_areasid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_areaname_areasid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_areaname_areasid"
+                    name="logical_areaname_areasid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="8"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_areaname_areasid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="sfindateitem">
+                <ion-label color="dark" class="content_padding" position="floating">sfindate</ion-label>
+                <ion-datetime
+                   
+                    class="input_for_boxed"
+                    placeholder="sfindate"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="sfindate"
+                    date-eformid="farmmstone_txn"
+                    data-label="sfindate"
+                    data-id="sfindate"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="DATE()"
+                    data-displayorder="9"
+                    data-validateexp=""
+                    id="sfindate"
+                    name="sfindate"
+                    readonly=false
+                    data-modeOfEntry="tbc"
+                    data-suggestive="False"
+                    hidden
+                    data-format="date"
+                    [(ngModel)]="preset_value['sfindate']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-datetime>
+            </ion-item>
+            <ion-item class="elementhide" name="sfinyearitem">
+                <ion-label color="dark" class="content_padding" position="floating">sfinyear</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="sfinyear"
+                    class="input_for_boxed"
+                    data-id="sfinyear"
+                    placeholder="sfinyear"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="sfinyear"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype="client"
+                    data-sqlvalue="sfindate"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    id="sfinyear"
+                    name="sfinyear"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="10"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['sfinyear']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="dynamicseqitem">
+                <ion-label color="dark" class="content_padding" position="floating">Dynamic Seq</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="Dynamic Seq"
+                    class="input_for_boxed"
+                    data-id="dynamicseq"
+                    placeholder="Dynamic Seq"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="dynamicseq"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="{T}"
+                    data-validateexp=""
+                    id="dynamicseq"
+                    name="dynamicseq"
+                    readonly=false
+                    data-modeOfEntry="tbc"
+                    data-displayorder="11"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['dynamicseq']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="villageitem">
+                <ion-label color="dark" class="content_padding" position="floating">Village</ion-label>
+                <ion-select
+                    item-content
+                  
+                    class="input_for_boxed"
+                    data-referjson='[{"id": 2060, "title": "Village", "txtabledetailid": "frmmast1", "datatype": "OneToOneField", "field_slug": "village", "isdbfield": true, "enum_meta": [], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "village", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (onChange)="checkChange($event,'village')"
+                    data-readonly=false
+                    data-label="Village"
+                    data-id="village"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="vmasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="31"
+                    data-widgettype="sas"
+                    data-fieldname="village"
+                    data-eformid="farmmstone_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="village"
+                    name="village"
+                    data-displayorder="12"
+                    data-componenttype="OneToOneField"
+                    
+                ></ion-select>
+            </ion-item>
+             <app-selectable                  
+                  [presetValue]="preset_value?.['village']"
+                  [optionsJson]="optionsJson?.['village']"
+                  (valueChange)="sasChange($event,'village')"
+                  [valueField] = "'vmasterid'"
+                  [displayField] = "'villagename'"
+                  [fieldName] ="'village'"
+                  [required] =true >
+              </app-selectable>
+            <ion-item class="elementhide" name="logical_village_vmasteriditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_village_vmasteridvmasterid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_village_vmasteridvmasterid"
+                    class="input_for_boxed"
+                    data-id="logical_village_vmasterid"
+                    placeholder="logical_village_vmasteridvmasterid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_village_vmasterid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_village_vmasterid"
+                    name="logical_village_vmasterid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="13"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_village_vmasterid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_village_villagenameitem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_village_villagenamevillagename</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_village_villagenamevillagename"
+                    class="input_for_boxed"
+                    data-id="logical_village_villagename"
+                    placeholder="logical_village_villagenamevillagename"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_village_villagename"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_village_villagename"
+                    name="logical_village_villagename"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="14"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_village_villagename']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_village_areanameitem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_village_areanameareaname</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_village_areanameareaname"
+                    class="input_for_boxed"
+                    data-id="logical_village_areaname"
+                    placeholder="logical_village_areanameareaname"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_village_areaname"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_village_areaname"
+                    name="logical_village_areaname"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="15"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_village_areaname']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="farmernoitem">
+                <ion-label color="dark" class="content_padding" position="floating">Farmer No</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_for_boxed"
+                    data-id="farmerno"
+              
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="farmerno"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="farmerno"
+                    name="farmerno"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="16"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['farmerno']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>            
+            <ion-item name="farmernameitem">
+                <ion-label color="dark" class="content_padding" position="floating">Farmer Name</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_for_boxed"
+                    data-id="farmername"
+                   
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="farmername"
+                    data-eformid="farmmstone_txn"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="farmername"
+                    name="farmername"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="17"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['farmername']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="fathernameitem">
+                <ion-label color="dark" class="content_padding" position="floating">Father Name</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_for_boxed"
+                    data-id="fathername"
+                   
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="fathername"
+                    data-eformid="farmmstone_txn"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="fathername"
+                    name="fathername"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="18"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['fathername']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="mobnoitem">
+                <ion-label color="dark" class="content_padding" position="floating">Mobile Number</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="mobno"
+                 
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="mobno"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="mobno"
+                    name="mobno"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="19"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['mobno']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="adhaarnoitem">
+                <ion-label color="dark" class="content_padding" position="floating">Adhaar No</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="adhaarno"
+                  
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="adhaarno"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="adhaarno"
+                    name="adhaarno"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="20"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['adhaarno']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="sowingtypeitem">
+               
+                <ion-select
+                    justify="space-between" 
+                    label="Sowing Type"
+                    label-placement="floating"
+                    class="input_for_boxed"
+                    [(ngModel)]="preset_value['sowingtype']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'sowingtype')"
+                    data-readonly=false
+                    data-label="Sowing Type"
+                    data-id="sowingtype"
+                    data-required="True"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvaluedependent=""
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="31"
+                    data-widgettype="select"
+                    data-fieldname="sowingtype"
+                    data-eformid="farmmstone_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="sowingtype"
+                    name="sowingtype"
+                    data-displayorder="21"
+                    data-referjson='[{"id": 5744, "title": "Sowing Type", "txtabledetailid": "frmmast1", "datatype": "Enum_Char", "field_slug": "sowingtype", "isdbfield": true, "enum_meta": [{"key": "DRIP+MULCH-OWN", "value": "DRIP+MULCH-OWN", "enum_title_fk": 33}, {"key": "DRIP+MULCH-KEN", "value": "DRIP+MULCH-KEN", "enum_title_fk": 33}, {"key": "MULCH-OWN", "value": "MULCH-OWN", "enum_title_fk": 33}, {"key": "MULCH-KEN", "value": "MULCH-KEN", "enum_title_fk": 33}, {"key": "DRIP-OWN", "value": "DRIP-OWN", "enum_title_fk": 33}, {"key": "DRIP-KEN", "value": "DRIP-KEN", "enum_title_fk": 33}, {"key": "REGULAR", "value": "REGULAR", "enum_title_fk": 33}], "maxlength": 20, "no_of_decimal_digits": 0, "columnname": "sowingtype", "isnull": true, "is_system_component": false}]'
+                >
+                    <ion-select-option value="DRIP+MULCH-OWN">DRIP+MULCH-OWN </ion-select-option><ion-select-option value="DRIP+MULCH-KEN">DRIP+MULCH-KEN </ion-select-option><ion-select-option value="MULCH-OWN">MULCH-OWN </ion-select-option>
+                    <ion-select-option value="MULCH-KEN">MULCH-KEN </ion-select-option><ion-select-option value="DRIP-OWN">DRIP-OWN </ion-select-option><ion-select-option value="DRIP-KEN">DRIP-KEN </ion-select-option><ion-select-option value="REGULAR">REGULAR </ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item name="cropnameitem">
+                
+                <ion-select
+                    justify="space-between" 
+                    label="Crop Name"
+                    label-placement="floating"
+                    class="input_for_boxed"
+                    [(ngModel)]="preset_value['cropname']"
+                    data-referjson='[{"id": 2059, "title": "Cropname", "txtabledetailid": "frmmast1", "datatype": "OneToOneField", "field_slug": "cropname", "isdbfield": true, "enum_meta": [], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "cropname", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'cropname')"
+                    data-readonly=false
+                    data-label="Crop Name"
+                    data-id="cropname"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="subgroupid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="31"
+                    data-widgettype="select"
+                    data-fieldname="cropname"
+                    data-eformid="farmmstone_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="cropname"
+                    name="cropname"
+                    data-displayorder="22"
+                    data-componenttype="OneToOneField"
+                >
+                    <ng-container *ngIf="optionsJson['cropname'] != null ">
+                        <ion-select-option *ngFor="let item of optionsJson['cropname']" value="{{item['subgroupid']}}"> {{item['subgroupid']}} </ion-select-option>
+                    </ng-container>
+                </ion-select>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_cropname_igdetailiditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_cropname_igdetailidigdetailid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_cropname_igdetailidigdetailid"
+                    class="input_for_boxed"
+                    data-id="logical_cropname_igdetailid"
+                    placeholder="logical_cropname_igdetailidigdetailid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_cropname_igdetailid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_cropname_igdetailid"
+                    name="logical_cropname_igdetailid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="23"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_cropname_igdetailid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_cropname_subgroupiditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_cropname_subgroupidsubgroupid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_cropname_subgroupidsubgroupid"
+                    class="input_for_boxed"
+                    data-id="logical_cropname_subgroupid"
+                    placeholder="logical_cropname_subgroupidsubgroupid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_cropname_subgroupid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_cropname_subgroupid"
+                    name="logical_cropname_subgroupid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="24"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_cropname_subgroupid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="cropschemeitem">
+              
+                <ion-select
+                    justify="space-between" 
+                    label="Crop Scheme"
+                    label-placement="floating"                   
+                    [(ngModel)]="preset_value['cropscheme']"
+                    data-referjson='[{"id": 23469, "title": "Crop Scheme", "txtabledetailid": "frmmast1", "datatype": "OneToOneField", "field_slug": "cropscheme", "isdbfield": false, "enum_meta": [], "maxlength": 50, "no_of_decimal_digits": 0, "columnname": "cropscheme", "isnull": false, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'cropscheme')"
+                    data-readonly="False"
+                    data-label="Crop Scheme"
+                    data-id="cropscheme"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="cropmasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="72"
+                    data-widgettype="select"
+                    data-fieldname="cropscheme"
+                    data-eformid="farmmstone_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="cropscheme"
+                    name="cropscheme"
+                    data-displayorder="25"
+                    data-componenttype="OneToOneField"
+                >
+                    <ng-container *ngIf="optionsJson['cropscheme'] != null ">
+                        <ion-select-option *ngFor="let item of optionsJson['cropscheme']" value="{{item['cropmasterid']}}"> {{item['cropscheme']}} </ion-select-option>
+                    </ng-container>
+                </ion-select>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_cropscheme_cropschemeitem">
+                <ion-label color="dark" class="content_padding" position="stacked">logical_cropscheme_cropschemecropscheme</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_cropscheme_cropschemecropscheme"
+                    class="input_for_boxed"
+                    data-id="logical_cropscheme_cropscheme"
+                    placeholder="logical_cropscheme_cropschemecropscheme"
+                    data-readonly="False"
+                    data-projectid="72"
+                    data-fieldname="logical_cropscheme_cropscheme"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_cropscheme_cropscheme"
+                    name="logical_cropscheme_cropscheme"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="26"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_cropscheme_cropscheme']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_cropscheme_cropmasteriditem">
+                <ion-label color="dark" class="content_padding" position="stacked">logical_cropscheme_cropmasteridcropmasterid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_cropscheme_cropmasteridcropmasterid"
+                    class="input_for_boxed"
+                    data-id="logical_cropscheme_cropmasterid"
+                    placeholder="logical_cropscheme1_cropmasteridcropmasterid"
+                    data-readonly="False"
+                    data-projectid="72"
+                    data-fieldname="logical_cropscheme_cropmasterid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_cropscheme_cropmasterid"
+                    name="logical_cropscheme_cropmasterid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="27"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_cropscheme_cropmasterid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <!-- <ion-item name="cropschemeitem">
+                <ion-label color="dark" class="content_padding" position="floating">Scheme</ion-label>
+                <ion-input
+                    readonly
+                    type="dpop"
+                    placeholder="Scheme"
+                    class="input_for_boxed"
+                    data-id="cropscheme"
+                    placeholder="Scheme"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="cropscheme"
+                    data-eformid="farmmstone_txn"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="cropscheme"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    id="cropscheme"
+                    name="cropscheme"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="25"
+                    data-suggestive="False"
+                    [(ngModel)]="dynamicpopup_key_value_array.cropscheme"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item> -->
+            <ion-item name="agnoitem">
+                <ion-label color="dark" class="content_padding label-disabled" position="floating">Agrno</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_for_boxed"
+                    data-id="agno"
+                   
+                    data-readonly="True"
+                    data-projectid="31"
+                    data-fieldname="agno"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="agrno "
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    id="agno"
+                    name="agno"
+                    readonly="True"
+                    data-modeOfEntry="tbc"
+                    data-displayorder="26"
+                    data-suggestive="False"
+                    disabled
+                    [(ngModel)]="preset_value['agno']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="acresitem">
+                <ion-label color="dark" class="content_padding" position="floating">Acres</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="acres"
+                 
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="acres"
+                    data-eformid="farmmstone_txn"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp="IIF(ACRES > 10,{Please Check Acres Entered!},{T})"
+                    id="acres"
+                    name="acres"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="27"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['acres']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="sowingdateitem" id="open-date">
+                
+                <ion-input 
+                    justify="space-between" 
+                    label="Sowing Date"
+                    label-placement="floating"                    
+                    class="input_for_boxed"                   
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="sowingdate"
+                    date-eformid="farmmstone_txn"
+                    data-label="Sowing Date"
+                    data-id="sowingdate"
+                    data-required="True"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-displayorder="28"
+                    data-validateexp=""
+                    id="sowingdate"
+                    name="sowingdate"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    data-format="date"
+                    [(ngModel)]="preset_value['sowingdate']"
+                    
+                ></ion-input>
+                 <ion-modal trigger="open-date" show-backdrop="false" id="modaldate">
+              <ng-template>
+                <ion-content>
+                  <ion-datetime #Datetime   presentation="date"data-id="sowingdate"
+                    id="sowingdate" name="sowingdate" 
+                     (ionChange)="dateChange($event, 'sowingdate')"(ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                  </ion-datetime>
+                </ion-content>
+              </ng-template>             
+             </ion-modal>
+
+                
+            </ion-item>
+            <ion-item class="elementhide" name="itemiditem">
+                <ion-label color="dark" class="content_padding" position="floating">Item 1</ion-label>
+                <ion-select
+                    justify="space-between" 
+                    label="Item 1"
+                    label-placement="floating"
+                  
+                    class="input_for_boxed"
+                    data-referjson='[{"id": 2427, "title": "Item", "txtabledetailid": "frmmast1", "datatype": "OneToOneField", "field_slug": "itemid", "isdbfield": true, "enum_meta": [], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "itemid", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (onChange)="checkChange($event,'itemid')"
+                    data-readonly=false
+                    data-label="Item 1"
+                    data-id="itemid"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="itemmasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="31"
+                    data-widgettype="sas"
+                    data-fieldname="itemid"
+                    data-eformid="farmmstone_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="itemid"
+                    name="itemid"
+                    data-displayorder="29"
+                    data-componenttype="OneToOneField"
+                    [(ngModel)]="preset_value['itemid']"
+                    
+                ></ion-select>
+            </ion-item>
+            <app-selectable                  
+                  [presetValue]="preset_value?.['itemid']"
+                  [optionsJson]="optionsJson?.['itemid']"
+                  (valueChange)="sasChange($event,'itemid')"
+                  [valueField] = "'itemmasterid'"
+                  [displayField] = "'itemid'"
+                  [fieldName] ="'itemid'"
+                  [required] =true >
+              </app-selectable>
+            <ion-item class="elementhide" name="logical_itemid_itemmasteriditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_itemid_itemmasteriditemmasterid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_itemid_itemmasteriditemmasterid"
+                    class="input_for_boxed"
+                    data-id="logical_itemid_itemmasterid"
+                    placeholder="logical_itemid_itemmasteriditemmasterid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_itemid_itemmasterid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_itemid_itemmasterid"
+                    name="logical_itemid_itemmasterid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="30"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_itemid_itemmasterid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_itemid_itemiditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_itemid_itemiditemid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_itemid_itemiditemid"
+                    class="input_for_boxed"
+                    data-id="logical_itemid_itemid"
+                    placeholder="logical_itemid_itemiditemid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_itemid_itemid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_itemid_itemid"
+                    name="logical_itemid_itemid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="31"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_itemid_itemid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="qtyitem">
+                <ion-label color="dark" class="content_padding" position="floating">Item 1 Qty</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="qty"
+                  
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="qty"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="qty"
+                    name="qty"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="32"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['qty']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="itemid2item">
+                <ion-label color="dark" class="content_padding" position="floating">Item 2</ion-label>
+                <ion-select
+                    justify="space-between" 
+                    label="Item 2"
+                    label-placement="floating"
+                   
+                    class="input_for_boxed"
+                    data-referjson='[{"id": 3026, "title": "Itemid", "txtabledetailid": "frmmast1", "datatype": "OneToOneField", "field_slug": "itemid2", "isdbfield": true, "enum_meta": [], "maxlength": 100, "no_of_decimal_digits": 0, "columnname": "itemid2", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (onChange)="checkChange($event,'itemid2')"
+                    data-readonly=false
+                    data-label="Item 2"
+                    data-id="itemid2"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="itemmasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="31"
+                    data-widgettype="sas"
+                    data-fieldname="itemid2"
+                    data-eformid="farmmstone_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="itemid2"
+                    name="itemid2"
+                    data-displayorder="33"
+                    data-componenttype="OneToOneField"
+                    [(ngModel)]="preset_value['itemid2']"
+                   
+                ></ion-select>
+            </ion-item>
+             <app-selectable                  
+                  [presetValue]="preset_value?.['itemid2']"
+                  [optionsJson]="optionsJson?.['itemid2']"
+                  (valueChange)="sasChange($event,'itemid2')"
+                  [valueField] = "'itemmasterid'"
+                  [displayField] = "'itemid'"
+                  [fieldName] ="'itemid2'"
+                  [required] =true >
+              </app-selectable>
+            <ion-item class="elementhide" name="logical_itemid2_itemmasteriditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_itemid2_itemmasteriditemmasterid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_itemid2_itemmasteriditemmasterid"
+                    class="input_for_boxed"
+                    data-id="logical_itemid2_itemmasterid"
+                    placeholder="logical_itemid2_itemmasteriditemmasterid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_itemid2_itemmasterid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_itemid2_itemmasterid"
+                    name="logical_itemid2_itemmasterid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="34"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_itemid2_itemmasterid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_itemid2_itemiditem">
+                <ion-label color="dark" class="content_padding" position="floating">logical_itemid2_itemiditemid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_itemid2_itemiditemid"
+                    class="input_for_boxed"
+                    data-id="logical_itemid2_itemid"
+                    placeholder="logical_itemid2_itemiditemid"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="logical_itemid2_itemid"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="logical_itemid2_itemid"
+                    name="logical_itemid2_itemid"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="35"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_itemid2_itemid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="qty1item">
+                <ion-label color="dark" class="content_padding" position="floating">Item 2 Qty</ion-label>
+                <ion-input
+                    type="number"
+                    class="input_for_boxed"
+                    data-id="qty1"
+                  
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="qty1"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="qty1"
+                    name="qty1"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="36"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['qty1']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-list data-id="image1" data-eformid="Farmmst One" data-hidden="False" data-displayorder="37" data-modeOfEntry="tbe" data-suggestive="False">
+          
+                   <ion-item  class="ion-align-items-center">
+                            <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >ID/Bank/Adhaar Proof </ion-label>
+                            <ion-button slot="end" fill="clear"  id="image1" name="image1" (click)="upload($event)">
+                                <ion-icon name="camera"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+                <div *ngIf="takenImage['image1']" text-center>
+                    <ion-row>
+                        <ion-col col-6><img class="image" [src]="takenImage['image1']" class="txn-img" align="middle" /></ion-col>
+
+                        <ion-col col-6 class="txn-img-col">
+                            <div class="txn-img-div">FileName:</div>
+                            <div>{{image_meta['image1']['filename']}}</div>
+                            <div *ngIf="!image_meta['image1']['uploadstatus']" (click)="uploadImage('image1')" class="txn-img-div">
+                                <ion-button icon-start small>
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                    upload
+                                </ion-button>
+                            </div>
+                            <div *ngIf="image_meta['image1']['uploadstatus']" (click)="deleteuploadImage('image1')" class="txn-img-div">
+                                <ion-button ion-button icon-start small color="danger">
+                                    <ion-icon name="trash"></ion-icon>
+                                    Delete
+                                </ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-list>
+            <ion-list data-id="image2" data-eformid="Farmmst One" data-hidden="False" data-displayorder="38" data-modeOfEntry="tbe" data-suggestive="False">
+                   <ion-item  class="ion-align-items-center">
+                            <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >Agreement Copy </ion-label>
+                            <ion-button slot="end" fill="clear"  id="image2" name="image2" (click)="upload($event)">
+                                <ion-icon name="camera"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+                <div *ngIf="takenImage['image2']" text-center>
+                    <ion-row>
+                        <ion-col col-6><img class="image" [src]="takenImage['image2']" class="txn-img" align="middle" /></ion-col>
+
+                        <ion-col col-6 class="txn-img-col">
+                            <div class="txn-img-div">FileName:</div>
+                            <div>{{image_meta['image2']['filename']}}</div>
+                            <div *ngIf="!image_meta['image2']['uploadstatus']" (click)="uploadImage('image2')" class="txn-img-div">
+                                <ion-button icon-start small>
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                    upload
+                                </ion-button>
+                            </div>
+                            <div *ngIf="image_meta['image2']['uploadstatus']" (click)="deleteuploadImage('image2')" class="txn-img-div">
+                                <ion-button ion-button icon-start small color="danger">
+                                    <ion-icon name="trash"></ion-icon>
+                                    Delete
+                                </ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-list>
+            <ion-list data-id="image3" data-eformid="Farmmst One" data-hidden="False" data-displayorder="39" data-modeOfEntry="tbe" data-suggestive="False">
+       
+                <ion-item  class="ion-align-items-center">
+                            <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >Issue Slip </ion-label>
+                            <ion-button slot="end" fill="clear"  id="image3" name="image3" (click)="upload($event)">
+                                <ion-icon name="camera"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+                <div *ngIf="takenImage['image3']" text-center>
+                    <ion-row>
+                        <ion-col col-6><img class="image" [src]="takenImage['image3']" class="txn-img" align="middle" /></ion-col>
+
+                        <ion-col col-6 class="txn-img-col">
+                            <div class="txn-img-div">FileName:</div>
+                            <div>{{image_meta['image3']['filename']}}</div>
+                            <div *ngIf="!image_meta['image3']['uploadstatus']" (click)="uploadImage('image3')" class="txn-img-div">
+                                <ion-button icon-start small>
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                    upload
+                                </ion-button>
+                            </div>
+                            <div *ngIf="image_meta['image3']['uploadstatus']" (click)="deleteuploadImage('image3')" class="txn-img-div">
+                                <ion-button ion-button icon-start small color="danger">
+                                    <ion-icon name="trash"></ion-icon>
+                                    Delete
+                                </ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-list>
+
+            <ion-item class="elementhide" name="seqprefixitem">
+                <ion-label color="dark" class="content_padding" position="floating">seqprefix</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="seqprefix"
+                    class="input_for_boxed"
+                    data-id="seqprefix"
+                    placeholder="seqprefix"
+                    data-readonly=false
+                    data-projectid="31"
+                    data-fieldname="seqprefix"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="(SUBSTR(logical_areaname_areasid,1,3) + '21')"
+                    data-validateexp=""
+                    id="seqprefix"
+                    name="seqprefix"
+                    readonly=false
+                    data-modeOfEntry="tbc"
+                    data-displayorder="40"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['seqprefix']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+              <ion-button fill="clear" (click)="getlocation()"><ion-icon name="locate-sharp"></ion-icon> Take Current Location</ion-button>
+              <ion-item name="latitudeitem" hidden>
+                <ion-label color="dark" class="content_padding" position="stacked">Latitude</ion-label>
+                <ion-input
+                    type="text"
+                  
+                    class="input_for_boxed"
+                    data-id="latitude"
+                 
+                    data-readonly="False"
+                    data-projectid="72"
+                    data-fieldname="latitude"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="latitude"
+                    name="latitude"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="41"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['latitude']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="longitudeitem" hidden>
+                <ion-label color="dark" class="content_padding" position="stacked">Longitude</ion-label>
+                <ion-input
+                    type="text"
+                   
+                    class="input_for_boxed"
+                    data-id="longitude"
+                   
+                    data-readonly="False"
+                    data-projectid="72"
+                    data-fieldname="longitude"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="longitude"
+                    name="longitude"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-displayorder="42"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['longitude']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-input>
+            </ion-item>
+            <ion-item name="addressitem">
+                <ion-label color="dark" class="content_padding" position="stacked">Address</ion-label>
+                <ion-textarea
+                    type="text"
+                  
+                    class="input_for_boxed"
+                    data-id="address"
+                    [autoGrow]="true"
+                    data-readonly=false
+                    data-projectid="72"
+                    data-fieldname="address"
+                    data-eformid="farmmstone_txn"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    id="address"
+                    name="address"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-displayorder="43"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['address']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                ></ion-textarea>
+            </ion-item>
+
+        </ion-list>
+    </div>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,83 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Spray Update</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+    <ion-card style="border-radius: 10px;">
+        <form id="sprayupdate_rptForm" name="sprayupdate_rptForm">
+            <div *ngIf="!searchDisplay" class="report_header">
+                <ion-row class="header_align"><h5>Spray</h5></ion-row>
+                <ion-card class="elementhide">
+                    <ion-card-content>
+                        <form id="sprayupdate_rptparamForm" name="sprayupdate_rptparamForm">
+                            <ion-list>
+                                <ion-item hidden>
+                                    <ion-label color="dark" stacked>mobno</ion-label>
+                                    <ion-input
+                                        type="number"
+                                        [(ngModel)]="preset_value['mobno']"
+                                        placeholder="mobno"
+                                        id="mobno"
+                                        name="mobno"
+                                        data-id="mobno"
+                                        data-widgettype="number"
+                                        data-sql=""
+                                        data-sqlvalue=""
+                                        data-fieldname="mobno"
+                                        data-eformid="sprayupdate_rpt"
+                                        data-hidden="True"
+                                        data-expression="MOBILENUMBER"
+                                        data-widgettype="number"
+                                        data-cf="False"
+                                        hidden
+                                       
+                                        (ionBlur)="checkBlur($event)"
+                                    ></ion-input>
+                                </ion-item>
+                            </ion-list>
+                        </form>
+                    </ion-card-content>
+                    <ion-row class="cardfooter">
+                        <ion-col>
+                            <ion-buttons end>
+                                <ion-item><button item-end block ion-button type="submit" color="secondary" small (click)="getreport()">View Report</button></ion-item>
+                            </ion-buttons>
+                        </ion-col>
+                    </ion-row>
+                </ion-card>
+            </div>
+            <ion-list class="scroll">
+                <table class="table table-striped" id="sprayupdate_rpt_tb" name="sprayupdate_rpt_tb">
+                    <thead>
+                        <th hidden data-expandbt="false" data-hidden="true" data-type="number" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="spraystatusid">spraystatusid</th>
+
+                        <th hidden data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="sowdt">sowdt</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="sprayactivity">sprayactivity</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="ragid">ragid</th>
+                        <th hidden data-expandbt="false" data-hidden="true" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="farmerid">Farmer Name</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="espraydt">espraydt</th>
+                        <th data-expandbt="false" data-hidden="false" data-type="button" data-dontrepeat="false" data-icons="albums" data-exp="linkform(sprayactivityid,spray_data)" data-ac="F" data-nod="0" data-idt="viewreportbutton">
+                            More Details
+                        </th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </ion-list>
+        </form>
+    </ion-card>
+</ion-content>
+<ion-footer></ion-footer>
+

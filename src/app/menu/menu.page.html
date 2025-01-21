@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border" [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <!-- <ion-menu-button style="color: #ffffff;" autoHide="false"></ion-menu-button> -->
+            <img src="assets/imgs/logo.png" alt=" Logo" style="margin-left: 5px; height: 40px; display:inline-block;  padding-right: 10px;">
+        </ion-buttons>
+
+        <ion-title style="color: #ffffff;">
+            <span style="font-size: 12px;">Welcome</span><br>{{param?.FIRSTNAME}}</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="logout()">
+                <ion-icon style="color: #ffffff; font-size:20px;" name="power-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="menu-container" *ngFor="let menu of this.grid">
+     
+         <ion-text class="centered-text label">
+         
+        </ion-text>
+         <ion-grid class="menu-items">
+            <ion-row>
+                <ng-container *ngFor="let item of menu.items">
+                    <ion-col size="6" style="">
+                        <div class="menu-item" (click)="openPage(item.view)">
+                             <ion-icon *ngIf="item.cls.type == 'ion'" [name]="item.cls.name" class="menuIcon" style="color: black;"></ion-icon>
+                            <i *ngIf="item.cls.type == 'fa'" [class]="'fa' + ' ' +  item.cls.name"></i>
+                            <ng-container *ngIf="item.cls.type == 'img'">
+                              <img  style="height: 50px; width: 50px;" [src]="item.cls.name" alt="">
+                            </ng-container>
+                            <ion-label class="menu-label" style="color: #007f70; font-size: 1rem; padding-top: 15px;">{{item.tit}}</ion-label>
+                        </div>
+                    </ion-col>
+                </ng-container>
+            </ion-row>
+        </ion-grid>
+      
+        
+    </div>
+
+  <!-- <ion-button (click)="startTracking()" >start</ion-button>
+   <ion-button (click)="stopTracking()" >start</ion-button> -->
+
+</ion-content>

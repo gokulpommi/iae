@@ -1,0 +1,163 @@
+
+ion-header {
+
+    box-shadow: none;
+
+     ion-toolbar {
+        --background: #007f70;
+
+       }
+
+}
+
+ion-content {
+
+    --background: transparent;
+
+    .parent {
+
+         
+
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        position: relative;
+
+        .location-input {
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: -webkit-fill-available;
+    margin: 15px;
+    background: white;
+    padding: 15px 16px;
+    border-radius: 19px;
+    border: 2px solid black;
+    font-size: 16px;
+
+        }
+
+        #map {
+           
+             position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: calc(100%); /* Reserve space for the bottom container */
+              z-index: 1;
+        }
+
+        .info-wrapper {
+
+            position: absolute;
+            z-index: 1;
+            margin: 10px;
+
+            .area-text {
+
+                background: white;
+                padding: 10px 15px;
+                border-radius: 10px;
+                box-shadow: 0 0 8px 2px #00000017;
+
+                .value {
+
+                    font-weight: bold;
+
+                }
+
+                .unit {
+
+                    font-size: 14px;
+
+                }
+
+            }
+
+        }
+
+      
+        .bottom-container {
+
+          display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 10px 15px;
+
+            div {
+                display: flex;
+                align-items: center;
+            }
+
+            
+            div:first-child {
+                justify-content: start;
+            }
+
+          
+           
+           
+            div:nth-child(2) {
+                justify-content: center; 
+            }
+
+          
+            div:last-child {
+                justify-content: end;
+            }
+
+            .unit-selector {
+
+                background: white;
+                padding-left: 8px;
+                border-radius: 12px;
+                box-shadow: 0 0 8px 2px #00000017;
+
+            }
+
+            .pin {
+
+                height: 40px;
+                --box-shadow: none;
+                --border-radius: 20px;             
+                --padding-start: 16px;
+                --padding-end: 16px;
+
+            }
+
+            .download {
+               
+                --box-shadow: none;
+                --border-radius: 20px;
+                aspect-ratio: 1;
+                --padding-start: 0;
+                --padding-end: 0;
+                --padding-top: 0;
+                --padding-bottom: 0;
+                --background: white;
+                color: black;
+                
+            }
+
+            .clear-markers {
+
+                --box-shadow: none;
+                --border-radius: 20px;
+                aspect-ratio: 1;
+                --padding-start: 0;
+                --padding-end: 0;
+                --padding-top: 0;
+                --padding-bottom: 0;
+                --background: red;
+
+            }
+
+        }
+
+    }
+
+}

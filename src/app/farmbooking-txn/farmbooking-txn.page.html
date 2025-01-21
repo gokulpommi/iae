@@ -1,0 +1,2065 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button  style="color: #ffffff;" (click)="backbutton()"
+                    class="toolbar-title"><ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title style="color: #ffffff;" class="toolbar-title">Frm Booking</ion-title>
+        <div *ngIf="(viewMode || isRapidCalling) && (modifyMode || isRapidCalling)" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="modify" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+        <div *ngIf="!viewMode && !isRapidCalling && !modifyMode" slot="end" style="margin-right: 15px;">
+            <ion-button style="--background: white; --color: black; --box-shadow: none; --padding-start: 20px; --padding-end: 20px;" shape="round" (click)="save($event)" data-modetype="normal" data-exp="">
+                <ion-icon style="color: black; margin-right: 10px;" name="save-outline"> </ion-icon>Save
+            </ion-button>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">farmbooking-txn</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <ion-card style="box-shadow: none;">
+        <div id="myForm" name="myForm" data-eformid="frmbooking_txn" data-metaSync="false">
+            <ion-list class="card_list_padding">
+               <ion-item class="elementhide">
+                    <ion-input
+                        label= "Mobile No"
+                        label-placement="floating"
+                        
+                        type="number"                        
+                        data-id="mobileno"                       
+                        data-readonly="False"
+                        data-projectid="72"
+                        data-fieldname="mobileno"
+                        data-eformid="frmbooking_txn"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="True"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression="MOBILENUMBER"
+                        data-validateexp=""
+                        id="mobileno"
+                        name="mobileno"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-displayorder="1"
+                        data-suggestive="False"
+                        hidden
+                        [(ngModel)]="preset_value['mobileno']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                  </ion-item>
+              
+                <ion-item name="branchiditem">
+                    
+                    <ion-select
+                       justify="space-between" 
+                       label="Branch Id"
+                        label-placement="floating"
+                        class="select_input_border"
+                        [(ngModel)]="preset_value['branchid']"
+                        data-referjson='[{"id": 20485, "title": "Branchid", "txtabledetailid": "frmbooking1", "datatype": "OneToOneField", "field_slug": "branchid", "isdbfield": true, "enum_meta": [], "maxlength": 20, "no_of_decimal_digits": 0, "columnname": "branchid", "isnull": true, "is_system_component": false}]'
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (ionChange)="checkChange($event,'branchid')"
+                        data-readonly="False"
+                        data-label="Branch Id"
+                        data-id="branchid"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype="server"
+                        data-sqlvalue="branchmastid"
+                        data-sqlvaluedependent="True"
+                        data-expression=""
+                        data-validateexp=""
+                        data-projectid="72"
+                        data-widgettype="select"
+                        data-fieldname="branchid"
+                        data-eformid="frmbooking_txn"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        id="branchid"
+                        name="branchid"
+                        data-displayorder="2"
+                        data-componenttype="OneToOneField"
+                    >
+                        <ng-container *ngIf="optionsJson['branchid'] != null ">
+                            <ion-select-option *ngFor="let item of optionsJson['branchid']" value="{{item['branchmastid']}}"> {{item['branchname']}} </ion-select-option>
+                        </ng-container>
+                    </ion-select>
+                </ion-item>
+            <ion-item class="elementhide" name="logical_branchid_branchmastiditem">
+                <ion-label color="primary" position="floating" hidden>logical_branchid_branchmastidbranchmastid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_branchid_branchmastidbranchmastid"
+                    class="input_border"
+                    data-label="logical_branchid_branchmastidbranchmastid"
+                    data-id="logical_branchid_branchmastid"
+                    data-projectid="72"
+                    data-fieldname="logical_branchid_branchmastid"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="3"
+                    id="logical_branchid_branchmastid"
+                    name="logical_branchid_branchmastid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_branchid_branchmastid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_branchid_branchnameitem">
+                <ion-label color="primary" position="floating" hidden>logical_branchid_branchnamebranchname</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_branchid_branchnamebranchname"
+                    class="input_border"
+                    data-label="logical_branchid_branchnamebranchname"
+                    data-id="logical_branchid_branchname"
+                    data-projectid="72"
+                    data-fieldname="logical_branchid_branchname"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="4"
+                    id="logical_branchid_branchname"
+                    name="logical_branchid_branchname"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_branchid_branchname']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_branchid_areanameitem">
+                <ion-label color="primary" position="floating" hidden>logical_branchid_areanameareaname</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_branchid_areanameareaname"
+                    class="input_border"
+                    data-label="logical_branchid_areanameareaname"
+                    data-id="logical_branchid_areaname"
+                    data-projectid="72"
+                    data-fieldname="logical_branchid_areaname"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="5"
+                    id="logical_branchid_areaname"
+                    name="logical_branchid_areaname"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_branchid_areaname']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_branchid_employee_nameitem">
+                <ion-label color="primary" position="floating" hidden>logical_branchid_employee_nameemployee_name</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_branchid_employee_nameemployee_name"
+                    class="input_border"
+                    data-label="logical_branchid_employee_nameemployee_name"
+                    data-id="logical_branchid_employee_name"
+                    data-projectid="72"
+                    data-fieldname="logical_branchid_employee_name"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="6"
+                    id="logical_branchid_employee_name"
+                    name="logical_branchid_employee_name"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_branchid_employee_name']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_branchid_lociditem">
+                <ion-label color="primary" position="floating" hidden>logical_branchid_locidlocid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_branchid_locidlocid"
+                    class="input_border"
+                    data-label="logical_branchid_locidlocid"
+                    data-id="logical_branchid_locid"
+                    data-projectid="72"
+                    data-fieldname="logical_branchid_locid"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="7"
+                    id="logical_branchid_locid"
+                    name="logical_branchid_locid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_branchid_locid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item> 
+             <ion-item class="elementhide" name="logical_branchid_locdetailsiditem">
+                <ion-label color="primary" position="floating" hidden>logical_branchid_locdetailsidlocdetailsid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_branchid_locdetailsidlocdetailsid"
+                    class="input_border"
+                    data-label="logical_branchid_locdetailsidlocdetailsid"
+                    data-id="logical_branchid_locdetailsid"
+                    data-projectid="72"
+                    data-fieldname="logical_branchid_locdetailsid"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="9"
+                    id="logical_branchid_locdetailsid"
+                    name="logical_branchid_locdetailsid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_branchid_locdetailsid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item> 
+              <ion-item class="elementhide" name="areanameitem" hidden>
+               
+                <ion-select
+                    justify="space-between" 
+                    label="Area Name"
+                    label-placement="floating"
+                    class="select_input_border"
+                    [(ngModel)]="preset_value['areaname']"
+                    data-referjson='[{"id": 20486, "title": "Areaname", "txtabledetailid": "frmbooking1", "datatype": "OneToOneField", "field_slug": "areaname", "isdbfield": true, "enum_meta": [], "maxlength": 20, "no_of_decimal_digits": 0, "columnname": "areaname", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'areaname')"
+                    data-readonly="True"
+                    data-label="Area Name"
+                    data-id="areaname"
+                    data-required="False"
+                    data-allowduplicate="True"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="amasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="72"
+                    data-widgettype="select"
+                    data-fieldname="areaname"
+                    data-eformid="frmbooking_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="areaname"
+                    name="areaname"
+                    data-displayorder="9"
+                    data-componenttype="OneToOneField"
+                >
+                    <ng-container *ngIf="optionsJson['areaname'] != null ">
+                        <ion-select-option *ngFor="let item of optionsJson['areaname']" value="{{item['amasterid']}}"> {{item['areaname']}} </ion-select-option>
+                    </ng-container>
+                </ion-select>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_areaname_amasteriditem">
+                <ion-label color="primary" position="floating" hidden>logical_areaname_amasteridamasterid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_areaname_amasteridamasterid"
+                    class="input_border"
+                    data-label="logical_areaname_amasteridamasterid"
+                    data-id="logical_areaname_amasterid"
+                    data-projectid="72"
+                    data-fieldname="logical_areaname_amasterid"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="10"
+                    id="logical_areaname_amasterid"
+                    name="logical_areaname_amasterid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_areaname_amasterid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_areaname_areanameitem">
+                <ion-label color="primary" position="floating" hidden>logical_areaname_areanameareaname</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_areaname_areanameareaname"
+                    class="input_border"
+                    data-label="logical_areaname_areanameareaname"
+                    data-id="logical_areaname_areaname"
+                    data-projectid="72"
+                    data-fieldname="logical_areaname_areaname"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="11"
+                    id="logical_areaname_areaname"
+                    name="logical_areaname_areaname"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_areaname_areaname']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_areaname_areasiditem">
+                <ion-label color="primary" position="floating" hidden>logical_areaname_areasidareasid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_areaname_areasidareasid"
+                    class="input_border"
+                    data-label="logical_areaname_areasidareasid"
+                    data-id="logical_areaname_areasid"
+                    data-projectid="72"
+                    data-fieldname="logical_areaname_areasid"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="12"
+                    id="logical_areaname_areasid"
+                    name="logical_areaname_areasid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_areaname_areasid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="empnameitem" hidden>
+               
+                <ion-select
+                    justify="space-between"
+                    label="FS Name"
+                    label-placement="floating"
+                    class="select_input_border"
+                    [(ngModel)]="preset_value['empname']"
+                    data-referjson='[{"id": 20487, "title": "FS Name", "txtabledetailid": "frmbooking1", "datatype": "OneToOneField", "field_slug": "empname", "isdbfield": true, "enum_meta": [], "maxlength": 20, "no_of_decimal_digits": 0, "columnname": "empname", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (ionChange)="checkChange($event,'empname')"
+                    data-readonly="True"
+                    data-label="FS Name"
+                    data-id="empname"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="empmasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="72"
+                    data-widgettype="select"
+                    data-fieldname="empname"
+                    data-eformid="frmbooking_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="empname"
+                    name="empname"
+                    data-displayorder="13"
+                    data-componenttype="OneToOneField"
+                >
+                    <ng-container *ngIf="optionsJson['empname'] != null ">
+                        <ion-select-option *ngFor="let item of optionsJson['empname']" value="{{item['empmasterid']}}"> {{item['employee_name']}} </ion-select-option>
+                    </ng-container>
+                </ion-select>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_empname_empmasteriditem">
+                <ion-label color="primary" position="floating" hidden>logical_empname_empmasteridempmasterid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_empname_empmasteridempmasterid"
+                    class="input_border"
+                    data-label="logical_empname_empmasteridempmasterid"
+                    data-id="logical_empname_empmasterid"
+                    data-projectid="72"
+                    data-fieldname="logical_empname_empmasterid"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="14"
+                    id="logical_empname_empmasterid"
+                    name="logical_empname_empmasterid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_empname_empmasterid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_empname_employee_nameitem">
+                <ion-label color="primary" position="floating" hidden>logical_empname_employee_nameemployee_name</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_empname_employee_nameemployee_name"
+                    class="input_border"
+                    data-label="logical_empname_employee_nameemployee_name"
+                    data-id="logical_empname_employee_name"
+                    data-projectid="72"
+                    data-fieldname="logical_empname_employee_name"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="15"
+                    id="logical_empname_employee_name"
+                    name="logical_empname_employee_name"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_empname_employee_name']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_empname_empareaitem">
+                <ion-label color="primary" position="floating" hidden>logical_empname_empareaemparea</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_empname_empareaemparea"
+                    class="input_border"
+                    data-label="logical_empname_empareaemparea"
+                    data-id="logical_empname_emparea"
+                    data-projectid="72"
+                    data-fieldname="logical_empname_emparea"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="16"
+                    id="logical_empname_emparea"
+                    name="logical_empname_emparea"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_empname_emparea']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_empname_empdeptitem">
+                <ion-label color="primary" position="floating" hidden>logical_empname_empdeptempdept</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_empname_empdeptempdept"
+                    class="input_border"
+                    data-label="logical_empname_empdeptempdept"
+                    data-id="logical_empname_empdept"
+                    data-projectid="72"
+                    data-fieldname="logical_empname_empdept"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="17"
+                    id="logical_empname_empdept"
+                    name="logical_empname_empdept"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_empname_empdept']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="emplociditem">
+                
+                <ion-input
+                    label="emplocid"
+                    type="text"
+                    
+                    class="input_border"
+                    data-label="emplocid"
+                    data-id="emplocid"
+                    data-projectid="72"
+                    data-fieldname="emplocid"
+                  
+                    data-eformid="frmbooking_txn"
+                    data-readonly="True"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="logical_empname_employee_name"
+                    data-validateexp=""
+                    data-displayorder="18"
+                    id="emplocid"
+                    name="emplocid"
+                    readonly="True"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                 
+                    [(ngModel)]="preset_value['emplocid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+           <ion-item class="elementhide" name="fslociditem">
+                <ion-label color="primary" position="floating" hidden>Fs Locid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="Fs Locid"
+                    class="input_border"
+                    data-label="Fs Locid"
+                    data-id="fslocid"
+                    data-projectid="72"
+                    data-fieldname="fslocid"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression="logical_branchid_locdetailsid"
+                    data-validateexp=""
+                    data-displayorder="20"
+                    id="fslocid"
+                    name="fslocid"
+                    readonly="False"
+                    data-modeOfEntry="tbc"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['fslocid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="emplociditem">
+                    <ion-label class="label-disabled" color="primary" position="floating" hidden>emplocid</ion-label>
+                    <ion-input
+                        type="text"
+                        placeholder="emplocid"
+                        class="input_border"
+                        data-label="emplocid"
+                        data-id="emplocid"
+                        data-projectid="72"
+                        data-fieldname="emplocid"
+                        disabled
+                        data-eformid="frmbooking_txn"
+                        data-readonly="True"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="True"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression="logical_empname_employee_name"
+                        data-validateexp=""
+                        data-displayorder="47"
+                        id="emplocid"
+                        name="emplocid"
+                        readonly="True"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        hidden
+                        [(ngModel)]="preset_value['emplocid']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        required
+                    ></ion-input>
+                </ion-item>
+             
+            
+                <ion-row>
+                    <ion-col size="6"> <ion-item name="issdtitem" (click)="openModal()">
+                    <ion-label color="primary" position="floating">Issue Dt</ion-label>
+                    <ion-input
+                        displayFormat="DD/MM/YYYY"
+                      
+                        data-readonly="True"
+                        data-label="Issue Dt"
+                        data-projectid="72"
+                        data-widgettype="date"
+                        data-fieldname="issdt"
+                        data-eformid="frmbooking_txn"
+                        data-id="issdt"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-displayorder="15"
+                        data-expression="DATE()"
+                        data-validateexp=""
+                        id="issdt"
+                        name="issdt"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        data-format="date"
+                        [(ngModel)]="preset_value['issdt']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                </ion-item>
+                <ion-modal  show-backdrop="false" class="modaldate">
+                  <ng-template>
+                    <ion-content>
+                      <ion-datetime #Datetime   presentation="date"data-id="docdate"
+                        id="issdt" name="issdt" 
+                        (ionChange)="preset_value['issdt'] = formatDate(Datetime.value)"(ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                      </ion-datetime>
+                    </ion-content>
+                  </ng-template>             
+                 </ion-modal>
+
+                <ion-item class="elementhide" name="sfinyearitem" >
+                    <ion-label color="primary" position="floating">sfinyear</ion-label>
+                    <ion-input
+                        type="text"
+                        placeholder="sfinyear"
+                        class="input_border"
+                        data-label="sfinyear"
+                        data-id="sfinyear"
+                        data-projectid="72"
+                        data-fieldname="sfinyear"
+                        data-eformid="frmbooking_txn"
+                        data-readonly="False"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="True"
+                        data-sqldbtype="client"
+                        data-sqlvalue="sfinyr"
+                        data-sqlvaluedependent="True"
+                        data-expression=""
+                        data-validateexp=""
+                        data-displayorder="16"
+                        id="sfinyear"
+                        name="sfinyear"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['sfinyear']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        required
+                    ></ion-input>
+                </ion-item>
+                <ion-item class="elementhide" name="sfinyearcitem" >
+                    <ion-label color="primary" position="floating">sfinyearc</ion-label>
+                    <ion-input
+                        type="text"
+                        placeholder="sfinyearc"
+                        class="input_border"
+                        data-label="sfinyearc"
+                        data-id="sfinyearc"
+                        data-projectid="72"
+                        data-fieldname="sfinyearc"
+                        data-eformid="frmbooking_txn"
+                        data-readonly="True"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression="SUBSTR(sfinyear,3,2)"
+                        data-validateexp=""
+                        data-displayorder="17"
+                        id="sfinyearc"
+                        name="sfinyearc"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['sfinyearc']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        required
+                    ></ion-input>
+                </ion-item></ion-col>
+                    <ion-col size="6"> <ion-item class="elementhide" name="seqprefixitem" >
+                    <ion-label color="primary" position="floating">seqprefix</ion-label>
+                    <ion-input
+                        type="text"
+                        placeholder="seqprefix"
+                        class="input_border"
+                        data-label="seqprefix"
+                        data-id="seqprefix"
+                        data-projectid="72"
+                        data-fieldname="seqprefix"
+                        data-eformid="frmbooking_txn"
+                        data-readonly="True"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression="SUBSTR(logical_areaname_areasid,1,3) + SUBSTR(sfinyear,3,2)+{FRB}"
+                        data-validateexp=""
+                        data-displayorder="18"
+                        id="seqprefix"
+                        name="seqprefix"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['seqprefix']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        required
+                    ></ion-input>
+                </ion-item>
+
+                <ion-item name="issnoitem">
+                    <ion-label color="primary" position="floating">Iss No</ion-label>
+                    <ion-input
+                        type="text"
+                       
+                        class="input_border"
+                        data-label="Iss No"
+                        data-id="issno"
+                        data-projectid="72"
+                        data-fieldname="issno"
+                        data-eformid="frmbooking_txn"
+                        data-readonly="True"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        data-displayorder="19"
+                        id="issno"
+                        name="issno"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['issno']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        required
+                    ></ion-input>
+                </ion-item></ion-col>
+                </ion-row>
+                <ion-item name="dcmrnoitem">
+                <ion-label color="primary" position="floating">DCMR No</ion-label>
+                <ion-input
+                    type="number"
+                   
+                    class="input_border"
+                    data-label="DCMR No"
+                    data-id="dcmrno"
+                    data-projectid="72"
+                    data-fieldname="dcmrno"
+                    data-eformid="frmbooking_txn"
+                    data-readonly=false
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="38"
+                    id="dcmrno"
+                    name="dcmrno"
+                    readonly=false
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    [(ngModel)]="preset_value['dcmrno']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+             
+              
+                <ion-item name="farmernameitem">
+                    <ion-label color="primary" position="floating">Farmer Name<ion-text color="danger">*</ion-text></ion-label>
+                    <ion-input
+                        type="text"
+                       
+                        class="input_border"
+                        data-label="Farmer Name"
+                        data-id="farmername"
+                        data-projectid="72"
+                        data-fieldname="farmername"
+                        data-eformid="frmbooking_txn"
+                        data-readonly=false
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        data-displayorder="21"
+                        id="farmername"
+                        name="farmername"
+                        readonly=false
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['farmername']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (keyup)="onKeyUp($event,'farmername')"
+                        required
+                    ></ion-input>
+                </ion-item>
+                <ion-item name="fathernameitem">
+                    <ion-label color="primary" position="floating">Father Name<ion-text color="danger">*</ion-text></ion-label>
+                    <ion-input
+                        type="text"
+                       
+                        data-label="Father Name"
+                        data-id="fathername"
+                        data-projectid="72"
+                        data-fieldname="fathername"
+                        data-eformid="frmbooking_txn"
+                        data-readonly=false
+                        data-required="False"
+                        data-allowduplicate="True"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        data-displayorder="27"
+                        id="fathername"
+                        name="fathername"
+                        readonly=false
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['fathername']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (keyup)="onKeyUp($event,'fathername')"
+                        required
+                    ></ion-input>
+                </ion-item>
+
+                <ion-item class="elementhide" name="villageitem">
+                  <ion-select
+                    label="village"                 
+                    class="select_input_border"
+                    data-referjson='[{"id": 20495, "title": "Village", "txtabledetailid": "frmbooking1", "datatype": "OneToOneField", "field_slug": "village", "isdbfield": true, "enum_meta": [], "maxlength": 20, "no_of_decimal_digits": 0, "columnname": "village", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (onChange)="sasChange($event,'village')"
+                    data-readonly="True"
+                    data-label="Village"
+                    data-id="village"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="vmasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="72"
+                    data-widgettype="select"
+                    data-fieldname="village"
+                    data-eformid="frmbooking_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="village"
+                    name="village"
+                    data-displayorder="31"
+                    data-componenttype="OneToOneField"
+                    
+                ></ion-select> 
+            </ion-item>
+
+              <app-selectable                  
+                  [presetValue]="preset_value?.['village']"
+                  [optionsJson]="optionsJson?.['village']"
+                  (valueChange)="sasChange($event,'village')"
+                  [valueField] = "'vmasterid'"
+                  [displayField] = "'villagename'"
+                  [fieldName] ="'village'"
+                  [required] =true >
+              </app-selectable>
+
+                                
+               <!-- <ion-item name="villageitem">
+                <ion-label color="primary" position="floating">Village<ion-text color="danger">*</ion-text></ion-label>
+                <ionic-selectable
+                    item-content                   
+                    class="select_input_border"
+                    data-referjson='[{"id": 20495, "title": "Village", "txtabledetailid": "frmbooking1", "datatype": "OneToOneField", "field_slug": "village", "isdbfield": true, "enum_meta": [], "maxlength": 20, "no_of_decimal_digits": 0, "columnname": "village", "isnull": true, "is_system_component": false}]'
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    (onChange)="sasChange($event,'village')"
+                    data-readonly="True"
+                    data-label="Village"
+                    data-id="village"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="False"
+                    data-sqldbtype="server"
+                    data-sqlvalue="vmasterid"
+                    data-sqlvaluedependent="True"
+                    data-expression=""
+                    data-validateexp=""
+                    data-projectid="72"
+                    data-widgettype="sas"
+                    data-fieldname="village"
+                    data-eformid="frmbooking_txn"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    id="village"
+                    name="village"
+                    data-displayorder="31"
+                    data-componenttype="OneToOneField"
+                    [(ngModel)]="preset_value['village']"
+                    itemValueField="vmasterid"
+                    itemTextField="villagename"
+                    [canSearch]="true"
+                    [items]="optionsJson['village']"
+                ></ionic-selectable> 
+            </ion-item> -->
+            <ion-item class="elementhide" name="logical_village_vmasteriditem">
+                <ion-label color="primary" position="floating" hidden>logical_village_vmasteridvmasterid</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_village_vmasteridvmasterid"
+                    class="input_border"
+                    data-label="logical_village_vmasteridvmasterid"
+                    data-id="logical_village_vmasterid"
+                    data-projectid="72"
+                    data-fieldname="logical_village_vmasterid"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="32"
+                    id="logical_village_vmasterid"
+                    name="logical_village_vmasterid"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_village_vmasterid']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_village_villagenameitem">
+                <ion-label color="primary" position="floating" hidden>logical_village_villagenamevillagename</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_village_villagenamevillagename"
+                    class="input_border"
+                    data-label="logical_village_villagenamevillagename"
+                    data-id="logical_village_villagename"
+                    data-projectid="72"
+                    data-fieldname="logical_village_villagename"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="33"
+                    id="logical_village_villagename"
+                    name="logical_village_villagename"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_village_villagename']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+            <ion-item class="elementhide" name="logical_village_areanameitem">
+                <ion-label color="primary" position="floating" hidden>logical_village_areanameareaname</ion-label>
+                <ion-input
+                    type="text"
+                    placeholder="logical_village_areanameareaname"
+                    class="input_border"
+                    data-label="logical_village_areanameareaname"
+                    data-id="logical_village_areaname"
+                    data-projectid="72"
+                    data-fieldname="logical_village_areaname"
+                    data-eformid="frmbooking_txn"
+                    data-readonly="False"
+                    data-required="False"
+                    data-allowduplicate="False"
+                    data-hidden="True"
+                    data-sqldbtype=""
+                    data-sqlvalue=""
+                    data-sqlvaluedependent="False"
+                    data-expression=""
+                    data-validateexp=""
+                    data-displayorder="34"
+                    id="logical_village_areaname"
+                    name="logical_village_areaname"
+                    readonly="False"
+                    data-modeOfEntry="tbe"
+                    data-suggestive="False"
+                    hidden
+                    [(ngModel)]="preset_value['logical_village_areaname']"
+                    (ionFocus)="onFocus($event)"
+                    (ionBlur)="checkBlur($event)"
+                    required
+                ></ion-input>
+            </ion-item>
+
+                <ion-item name="mobnoitem">
+                    <ion-label color="primary" position="floating">Mobile No<ion-text color="danger">*</ion-text></ion-label>
+                    <ion-input
+                        type="number"
+                       
+                        data-id="mobno"
+                        
+                        class="input_border"
+                        data-readonly="false"
+                        data-projectid="72"
+                        data-fieldname="mobno"
+                        data-eformid="frmbooking_txn"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        id="mobno"
+                        name="mobno"
+                        readonly="false"
+                        data-modeOfEntry="tbe"
+                        data-displayorder="25"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['mobno']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                </ion-item>
+                <ion-item name="acresitem">
+                    <ion-label color="primary" position="floating">Acres<ion-text color="danger">*</ion-text></ion-label>
+                    <ion-input
+                        type="number"                       
+                        data-id="acres"                       
+                        class="input_border"
+                        data-readonly="false"
+                        data-projectid="72"
+                        data-fieldname="acres"
+                        data-eformid="frmbooking_txn"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        id="acres"
+                        name="acres"
+                        readonly="false"
+                        data-modeOfEntry="tbe"
+                        data-displayorder="26"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['acres']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"                       
+                    ></ion-input>
+                </ion-item>
+                <ion-item name="cropnameitem">
+                    <ion-select
+                        justify="space-between"
+                        label="Crop Name"
+                        label-placement="floating"
+                        class="select_input_border"
+                        [(ngModel)]="preset_value['cropname']"
+                        data-referjson='[{"id": 20498, "title": "Crop Name", "txtabledetailid": "frmbooking1", "datatype": "ForeignKey_char", "field_slug": "cropname", "isdbfield": true, "enum_meta": [], "maxlength": 30, "no_of_decimal_digits": 0, "columnname": "cropname", "isnull": true, "is_system_component": false}]'
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (ionChange)="checkChange($event,'cropname')"
+                        data-readonly="True"
+                        data-label="Crop Name"
+                        data-id="cropname"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype="server"
+                        data-sqlvalue="subgroupid"
+                        data-sqlvaluedependent="True"
+                        data-expression="{Gherkin}"
+                        data-validateexp=""
+                        data-projectid="72"
+                        data-widgettype="select"
+                        data-fieldname="cropname"
+                        data-eformid="frmbooking_txn"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        id="cropname"
+                        name="cropname"
+                        data-displayorder="27"
+                        data-componenttype="ForeignKey_char"
+                    >
+                        <ng-container *ngIf="optionsJson['cropname'] != null ">
+                            <ion-select-option *ngFor="let item of optionsJson['cropname']" value="{{item['subgroupid']}}"> {{item['subgroupid']}} </ion-select-option>
+                        </ng-container>
+                    </ion-select>
+                </ion-item>
+                <ion-item name="cropschemeitem">
+                    <ion-select
+                        justify="space-between"
+                        label="Crop Scheme"
+                        label-placement="floating"
+                        class="select_input_border"
+                        [(ngModel)]="preset_value['cropscheme']"
+                        data-referjson='[{"id": 20499, "title": "Crop Scheme", "txtabledetailid": "frmbooking1", "datatype": "ForeignKey_char", "field_slug": "cropscheme", "isdbfield": true, "enum_meta": [], "maxlength": 30, "no_of_decimal_digits": 0, "columnname": "cropscheme", "isnull": true, "is_system_component": false}]'
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (ionChange)="checkChange($event,'cropscheme')"
+                        data-readonly="True"
+                        data-label="Crop Scheme"
+                        data-id="cropscheme"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype="server"
+                        data-sqlvalue="cropscheme"
+                        data-sqlvaluedependent="True"
+                        data-expression=""
+                        data-validateexp=""
+                        data-projectid="72"
+                        data-widgettype="select"
+                        data-fieldname="cropscheme"
+                        data-eformid="frmbooking_txn"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        id="cropscheme"
+                        name="cropscheme"
+                        data-displayorder="28"
+                        data-componenttype="ForeignKey_char"
+                    >
+                        <ng-container *ngIf="optionsJson['cropscheme'] != null ">
+                            <ion-select-option *ngFor="let item of optionsJson['cropscheme']" value="{{item['cropscheme']}}"> {{item['cropscheme']}} </ion-select-option>
+                        </ng-container>
+                    </ion-select>
+                </ion-item>
+                <ion-item name="expsowdtitem" id="expdate">
+                    <ion-label color="primary" position="floating">Exp Sow Dt<ion-text color="danger">*</ion-text></ion-label>
+                    <ion-input
+                        displayFormat="DD/MM/YYYY"
+                       
+                        class="input_border"
+                        data-readonly="False"
+                        data-label="Exp Sow Dt"
+                        data-projectid="72"
+                        data-fieldname="expsowdt"
+                        data-eformid="frmbooking_txn"
+                        data-id="expsowdt"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-displayorder="29"
+                        data-expression=""
+                        data-validateexp=""
+                        id="expsowdt"
+                        name="expsowdt"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        data-format="date"
+                        [(ngModel)]="preset_value['expsowdt']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                </ion-item>
+                 <ion-modal trigger="expdate" show-backdrop="false" id="modaldate">
+              <ng-template>
+                <ion-content>
+                  <ion-datetime #Datetime   presentation="date"data-id="docdate"
+                    id="expsowdt" name="expsowdt" 
+                    (ionChange)="preset_value['expsowdt'] = formatDate(Datetime.value)"(ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                  </ion-datetime>
+                </ion-content>
+              </ng-template>             
+             </ion-modal>
+                <ion-item name="expylditem">
+                    <ion-label color="primary" position="floating">Exp Yld(Kg)</ion-label>
+                    <ion-input
+                        type="number"
+                        
+                        data-id="expyld"
+                      
+                        class="input_border"
+                        data-readonly=false
+                        data-projectid="72"
+                        data-fieldname="expyld"
+                        data-eformid="frmbooking_txn"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        id="expyld"
+                        name="expyld"
+                        readonly=false
+                        data-modeOfEntry="tbe"
+                        data-displayorder="30"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['expyld']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                </ion-item>
+            
+              <!--   <ion-grid style="padding-top: 3vh; padding-bottom: 2vh; padding-left: 0px; padding-right: 0px;">
+                    <ion-row>
+                        <ion-col style="padding: 0;">
+                            <ion-button
+                                style="margin: 0px; --color: white; --border-width: 0px; height: 50px; --border-radius: 10px;"
+                                expand="block"
+                                size="default"
+                                (click)="presentModal('frm_booking_details')"
+                                id="frm_booking_details-form1"
+                            >
+                                ADD Frm Detail
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+                <div class="custom-card" id="frm_booking_details-form2" hidden>
+                    <div class="container" style="padding: 0px;">
+                        <div *ngIf="!viewMode">
+                            <ion-card style="display: flex; align-items: center; padding-top: 10px; padding-bottom: 10px; box-shadow: none; background: aliceblue; color: black;">
+                                <ion-grid>
+                                    <ion-row>
+                                        <ion-col size="6" style="font-weight: bold;">Item Name</ion-col>
+                                        <ion-col size="3" style="font-weight: bold;">Stock Qty</ion-col>
+                                        <ion-col size="3" style="font-weight: bold;">Issue Qty</ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-card>
+
+                            <div class="card" *ngFor="let data of frm_booking_detailsarray" id="frm_booking_details" name="frm_booking_details" data-db="frm_booking_details" (click)="editModal(data,'frm_booking_details')">
+                                <ion-card style="display: flex; align-items: center; padding-top: 10px; padding-bottom: 10px; box-shadow: none; background: aliceblue; color: black;">
+                                    <ion-grid>
+                                        <ion-row>
+                                            <ion-col size="6">{{data.logical_itemid_itemid}}</ion-col>
+                                            <ion-col size="3" style="text-align: center;">{{data.sqty}}</ion-col>
+
+                                            <ion-col style="text-align: center;">{{data.issqty}}</ion-col>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ion-grid style="padding-top: 3vh;">
+                    <ion-button
+                        style="margin: 0px; --color: white; --border-width: 0px; height: 50px; --border-radius: 10px;"
+                        expand="block"
+                        size="default"
+                        expand="block"
+                        size="default"
+                        (click)="presentModal('frm_booking_details')"
+                        id="frm_booking_details-form3"
+                        hidden
+                    >
+                        ADD Frm Detail
+                    </ion-button>
+                </ion-grid> -->
+            </ion-list>
+           <!--  <ion-list class="card_list_padding">
+                <ion-item name="totissqtyitem">
+                    <ion-label class="label-disabled" color="primary" position="floating">Tot Issue Qty</ion-label>
+                    <ion-input
+                        type="number"
+                      
+                        data-id="totissqty"
+                        placeholder="Tot Issue Qty"
+                        class="input_border"
+                        data-readonly="True"
+                        data-projectid="72"
+                        data-fieldname="totissqty"
+                        data-eformid="frmbooking_txn"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression="TOTAL({issqty})"
+                        data-validateexp=""
+                        id="totissqty"
+                        name="totissqty"
+                        readonly="True"
+                        data-modeOfEntry="tbe"
+                        data-displayorder="1"
+                        data-suggestive="False"
+                        disabled
+                        [(ngModel)]="preset_value.totissqty"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                </ion-item>
+                <ion-item name="fstatusitem">
+                    <ion-label color="primary" position="floating">Status</ion-label>
+                    <ion-select
+                      
+                        class="select_input_border"
+                        [(ngModel)]="preset_value.fstatus"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (ionChange)="checkChange($event,'fstatus')"
+                        data-readonly="False"
+                        data-label="Status"
+                        data-id="fstatus"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvaluedependent=""
+                        data-expression=""
+                        data-validateexp=""
+                        data-projectid="72"
+                        data-widgettype="select"
+                        data-fieldname="fstatus"
+                        data-eformid="frmbooking_txn"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        id="fstatus"
+                        name="fstatus"
+                        data-displayorder="2"
+                        data-referjson='[{"id": 20515, "title": "Status", "txtabledetailid": "frmbooking1", "datatype": "Enum_Char", "field_slug": "fstatus", "isdbfield": true, "enum_meta": [{"key": "SOWING DONE", "value": "SOWING DONE", "enum_title_fk": 214}, {"key": "UNDER-PROCESS", "value": "UNDER-PROCESS", "enum_title_fk": 214}], "maxlength": 50, "no_of_decimal_digits": 0, "columnname": "fstatus", "isnull": true, "is_system_component": false}]'
+                    >
+                        <ion-select-option value="SOWING DONE">SOWING DONE </ion-select-option><ion-select-option value="UNDER-PROCESS">UNDER-PROCESS </ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item name="remarksitem">
+                    <ion-label color="primary" position="floating">Remarks</ion-label>
+                    <ion-textarea
+                        placeholder="Remarks"
+                        class="input_border"
+                        data-readonly=false
+                        data-projectid="72"
+                        data-fieldname="remarks"
+                        data-eformid="frmbooking_txn"
+                        data-label="Remarks"
+                        data-id="remarks"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        id="remarks"
+                        readonly=false
+                        data-modeOfEntry="tbe"
+                        name="remarks"
+                        data-suggestive="True"
+                        data-displayorder="3"
+                        [(ngModel)]="preset_value.remarks"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-textarea>
+                </ion-item>
+            </ion-list> -->
+             <ion-list class="card_list_padding">
+                <ion-item name="totissqtyitem" >
+                    <ion-label class="label-disabled" color="primary" position="floating">Number of Seeds Issued</ion-label>
+                    <ion-input
+                        type="number"
+                      
+                        data-id="totissqty"
+                       
+                        class="input_border"
+                        data-readonly=false
+                        data-projectid="72"
+                        data-fieldname="totissqty"
+                        data-eformid="frmbooking_txn"
+                        data-required="False"
+                        data-allowduplicate="True"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        id="totissqty"
+                        name="totissqty"
+                        readonly=false
+                        data-modeOfEntry="tbe"
+                        data-displayorder="1"
+                        data-suggestive="False"                        
+                        [(ngModel)]="preset_value['totissqty']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                </ion-item>
+                 <ion-item  name="issuedtitem" id = "isdate"><ion-label color="primary" position="floating">Seeds Dt</ion-label><ion-input displayFormat="DD/MM/YYYY"  class="input_border" data-readonly="False" data-label="Seeds Dt" data-projectid="72" data-fieldname="issuedt" data-eformid="frmbooking_txn" data-id="issuedt" data-required="False" data-allowduplicate="True" data-hidden="False" data-sqldbtype="" data-sqlvalue="" data-sqlvaluedependent="False" data-displayorder="39" data-expression="" data-validateexp="" id="issuedt" name="issuedt" readonly="False" data-modeOfEntry="tbe" data-suggestive="True"   data-format="date" [(ngModel)]="preset_value['issuedt']" (ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"></ion-input></ion-item>
+                    <ion-modal  show-backdrop="false" trigger="isdate" class="modaldate">
+                      <ng-template>
+                        <ion-content>
+                          <ion-datetime #Datetime   presentation="date"data-id="issuedt"
+                            id="issuedt" name="issuedt" 
+                            (ionChange)="dateChange($event, 'issuedt')" showDefaultButtons="true"   >     
+                          </ion-datetime>
+                        </ion-content>
+                      </ng-template>             
+                     </ion-modal>
+               
+
+                  <ion-item name="irgtypeitem">
+                   
+                    <ion-select   
+                        justify="space-between"
+                        label="Irg Type"   
+                        label-placement="floating"                 
+                        class="select_input_border"
+                        [(ngModel)]="preset_value['irgtype']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (ionChange)="checkChange($event,'irgtype')"
+                        data-readonly="False"
+                        data-label="Irg Type"
+                        data-id="irgtype"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvaluedependent=""
+                        data-expression=""
+                        data-validateexp=""
+                        data-projectid="72"
+                        data-widgettype="select"
+                        data-fieldname="irgtype"
+                        data-eformid="frmbooking_txn"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        id="irgtype"
+                        name="irgtype"
+                        data-displayorder="11"
+                        data-referjson='[{"id": 22125, "title": "Irg Type", "txtabledetailid": "frmbooking1", "datatype": "Enum_Char", "field_slug": "irgtype", "isdbfield": true, "enum_meta": [{"key": "BDMF", "value": "BDMF", "enum_title_fk": 211}, {"key": "DRIP", "value": "DRIP", "enum_title_fk": 211}, {"key": "FURROW", "value": "FURROW", "enum_title_fk": 211}, {"key": "REGULAR", "value": "REGULAR", "enum_title_fk": 211}], "maxlength": 10, "no_of_decimal_digits": 0, "columnname": "irgtype", "isnull": true, "is_system_component": false}]'
+                    >
+                        <ion-select-option value="BDMF">BDMF </ion-select-option><ion-select-option value="DRIP">DRIP </ion-select-option><ion-select-option value="FURROW">FURROW </ion-select-option><ion-select-option value="REGULAR">REGULAR </ion-select-option>
+                    </ion-select>
+                </ion-item>
+                
+                <ion-item name="fstatusitem" >
+                    
+                    <ion-select
+                        justify="space-between"
+                        label="Status"
+                        label-placement="floating"
+                        class="select_input_border"
+                        [(ngModel)]="preset_value['fstatus']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (ionChange)="checkChange($event,'fstatus')"
+                        data-readonly="True"
+                        data-label="Status"
+                        data-id="fstatus"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvaluedependent=""
+                        data-expression=""
+                        data-validateexp=""
+                        data-projectid="72"
+                        data-widgettype="select"
+                        data-fieldname="fstatus"
+                        data-eformid="frmbooking_txn"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        id="fstatus"
+                        name="fstatus"
+                        data-displayorder="2"
+                        data-referjson='[{"id": 20515, "title": "Status", "txtabledetailid": "frmbooking1", "datatype": "Enum_Char", "field_slug": "fstatus", "isdbfield": true, "enum_meta": [{"key": "NO", "value": "NO", "enum_title_fk": 214}, {"key": "YES", "value": "YES", "enum_title_fk": 214}], "maxlength": 50, "no_of_decimal_digits": 0, "columnname": "fstatus", "isnull": true, "is_system_component": false}]'
+                    >
+                        <ion-select-option value="NO">NO </ion-select-option><ion-select-option value="YES">YES </ion-select-option>
+                    </ion-select>
+                </ion-item>              
+
+                 <ion-item name="reasonsitem">
+                   
+                    <ion-select
+                        justify="space-between"
+                        label="Reasons"
+                        label-placement="floating"
+                        class="select_input_border"
+                        [(ngModel)]="preset_value['reasons']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (ionChange)="checkChange($event,'reasons')"
+                        data-readonly="False"
+                        data-label="Reasons"
+                        data-id="reasons"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvaluedependent=""
+                        data-expression=""
+                        data-validateexp=""
+                        data-projectid="72"
+                        data-widgettype="select"
+                        data-fieldname="reasons"
+                        data-eformid="frmbooking_txn"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        id="reasons"
+                        name="reasons"
+                        data-displayorder="5"
+                        data-referjson='[{"id": 22119, "title": "Reasons", "txtabledetailid": "frmbooking1", "datatype": "Enum_Char", "field_slug": "reasons", "isdbfield": true, "enum_meta": [{"key": "OTHER REASONS", "value": "OTHER REASONS", "enum_title_fk": 228}, {"key": "LABOUR ISSUES", "value": "LABOUR ISSUES", "enum_title_fk": 228}, {"key": "COMMERCIAL CROPS", "value": "COMMERCIAL CROPS", "enum_title_fk": 228}, {"key": "WATER SCARITY", "value": "WATER SCARITY", "enum_title_fk": 228}, {"key": "FREEBIES", "value": "FREEBIES", "enum_title_fk": 228}, {"key": "CASH ADVANCE", "value": "CASH ADVANCE", "enum_title_fk": 228}, {"key": "COMPETITOR SCHEMES", "value": "COMPETITOR SCHEMES", "enum_title_fk": 228}, {"key": "COMPETITOR ADVANCE", "value": "COMPETITOR ADVANCE", "enum_title_fk": 228}, {"key": "COMPETITOR RATES", "value": "COMPETITOR RATES", "enum_title_fk": 228}], "maxlength": 50, "no_of_decimal_digits": 0, "columnname": "reasons", "isnull": true, "is_system_component": false}]'
+                    >
+                        <ion-select-option value="OTHER REASONS">OTHER REASONS </ion-select-option><ion-select-option value="LABOUR ISSUES">LABOUR ISSUES </ion-select-option><ion-select-option value="COMMERCIAL CROPS">COMMERCIAL CROPS </ion-select-option>
+                        <ion-select-option value="WATER SCARITY">WATER SCARITY </ion-select-option><ion-select-option value="FREEBIES">FREEBIES </ion-select-option><ion-select-option value="CASH ADVANCE">CASH ADVANCE </ion-select-option>
+                        <ion-select-option value="COMPETITOR SCHEMES">COMPETITOR SCHEMES </ion-select-option><ion-select-option value="COMPETITOR ADVANCE">COMPETITOR ADVANCE </ion-select-option><ion-select-option value="COMPETITOR RATES">COMPETITOR RATES </ion-select-option>
+                    </ion-select>
+                </ion-item>
+                 <ion-item name="remarksitem">
+                    <ion-label color="primary" position="floating">Remarks</ion-label>
+                    <ion-textarea
+                        
+                        
+                        data-readonly=false
+                        data-projectid="72"
+                        data-fieldname="remarks"
+                        data-eformid="frmbooking_txn"
+                        data-label="Remarks"
+                        data-id="remarks"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        id="remarks"
+                        readonly=false
+                        data-modeOfEntry="tbe"
+                        name="remarks"
+                        data-suggestive="True"
+                        data-displayorder="3"
+                        [(ngModel)]="preset_value['remarks']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-textarea> 
+                </ion-item>
+    
+
+            <ion-list *ngIf="this.visible">
+               
+                <ion-item name="totissvalitem" hidden>
+                    <ion-label class="label-disabled" color="primary" position="floating">Tot Iss Val</ion-label>
+                    <ion-input
+                        type="number"
+                        placeholder="Tot Iss Val"
+                        data-id="totissval"
+                        placeholder="Tot Iss Val"
+                        class="input_border"
+                        data-readonly="True"
+                        data-projectid="72"
+                        data-fieldname="totissval"
+                        data-eformid="frmbooking_txn"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression="TOTAL({issval})"
+                        data-validateexp=""
+                        id="totissval"
+                        name="totissval"
+                        readonly="True"
+                        data-modeOfEntry="tbe"
+                        data-displayorder="4"
+                        data-suggestive="False"
+                        disabled
+                        [(ngModel)]="preset_value['totissval']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                </ion-item>
+           
+                <ion-item class="elementhide" name="savectrlitem">
+                    <ion-label color="primary" position="floating" hidden>savectrl</ion-label>
+                    <ion-input
+                        type="text"
+                        placeholder="savectrl"
+                        class="input_border"
+                        data-label="savectrl"
+                        data-id="savectrl"
+                        data-projectid="72"
+                        data-fieldname="savectrl"
+                        data-eformid="frmbooking_txn"
+                        data-readonly="False"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="True"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression="IIF(fstatus='YES',{T},{F})"
+                        data-validateexp=""
+                        data-displayorder="6"
+                        id="savectrl"
+                        name="savectrl"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        hidden
+                        [(ngModel)]="preset_value['savectrl']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        required
+                    ></ion-input>
+                </ion-item>
+                <ion-item name="asowdtitem" id="sodate">
+                    <ion-label color="primary" position="floating">Asow Dt</ion-label>
+                    <ion-input
+                        displayFormat="DD/MM/YYYY"
+                        placeholder="Asow Dt"
+                        class="input_border"
+                        data-readonly="False"
+                        data-label="Asow Dt"
+                        data-projectid="72"
+                        data-fieldname="asowdt"
+                        data-eformid="frmbooking_txn"
+                        data-id="asowdt"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-displayorder="7"
+                        data-expression=""
+                        data-validateexp=""
+                        id="asowdt"
+                        name="asowdt"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        data-format="date"
+                        [(ngModel)]="preset_value['asowdt']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                    ></ion-input>
+                </ion-item>
+                <ion-modal trigger="sodate" show-backdrop="false" id="modaldate">
+                  <ng-template>
+                    <ion-content>
+                      <ion-datetime #Datetime   presentation="date"data-id="asowdt"
+                        id="asowdt" name="asowdt" 
+                        (ionChange)="preset_value['asowdt'] = formatDate(Datetime.value)"(ionFocus)="onFocus($event)" (ionBlur)="checkBlur($event)"showDefaultButtons="true"   >     
+                      </ion-datetime>
+                    </ion-content>
+                  </ng-template>             
+                 </ion-modal>
+                 <ion-item name="aacresitem">
+                    <ion-label color="primary" fixed>aacres</ion-label>
+                    <ion-input
+                        type="text"
+                        placeholder="aacres"
+                        class="input_border"
+                        data-label="aacres"
+                        data-id="aacres"
+                        data-projectid="72"
+                        data-fieldname="aacres"
+                        data-eformid="frmbooking_txn"
+                        data-readonly="False"
+                        data-required="False"
+                        data-allowduplicate="True"
+                        data-hidden="False"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        data-displayorder="8"
+                        id="aacres"
+                        name="aacres"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        [(ngModel)]="preset_value['aacres']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        required
+                    ></ion-input>
+                </ion-item>
+                <ion-item class="elementhide" name="agrnoitem">
+                    <ion-label color="primary" position="floating" hidden>Agrno</ion-label>
+                    <ion-input
+                        type="text"
+                        placeholder="Agrno"
+                        class="input_border"
+                        data-label="Agrno"
+                        data-id="agrno"
+                        data-projectid="72"
+                        data-fieldname="agrno"
+                        data-eformid="frmbooking_txn"
+                        data-readonly="False"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="True"
+                        data-sqldbtype=""
+                        data-sqlvalue=""
+                        data-sqlvaluedependent="False"
+                        data-expression=""
+                        data-validateexp=""
+                        data-displayorder="9"
+                        id="agrno"
+                        name="agrno"
+                        readonly="False"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        hidden
+                        [(ngModel)]="preset_value['agrno']"
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        required
+                    ></ion-input>
+                </ion-item>
+                <ion-item name="schemeitem">
+                    <ion-label color="primary" position="floating">Scheme</ion-label>
+                    <ion-select
+                       
+                        class="select_input_border"
+                        [(ngModel)]="preset_value['scheme']"
+                        data-referjson='[{"id": 22124, "title": "Scheme", "txtabledetailid": "frmbooking1", "datatype": "ForeignKey_char", "field_slug": "scheme", "isdbfield": true, "enum_meta": [], "maxlength": 30, "no_of_decimal_digits": 0, "columnname": "scheme", "isnull": true, "is_system_component": false}]'
+                        (ionFocus)="onFocus($event)"
+                        (ionBlur)="checkBlur($event)"
+                        (ionChange)="checkChange($event,'scheme')"
+                        data-readonly="False"
+                        data-label="Scheme"
+                        data-id="scheme"
+                        data-required="False"
+                        data-allowduplicate="False"
+                        data-hidden="False"
+                        data-sqldbtype="server"
+                        data-sqlvalue="cropscheme"
+                        data-sqlvaluedependent="True"
+                        data-expression=""
+                        data-validateexp=""
+                        data-projectid="72"
+                        data-widgettype="select"
+                        data-fieldname="scheme"
+                        data-eformid="frmbooking_txn"
+                        data-modeOfEntry="tbe"
+                        data-suggestive="False"
+                        id="scheme"
+                        name="scheme"
+                        data-displayorder="10"
+                        data-componenttype="ForeignKey_char"
+                    >
+                        <ng-container *ngIf="optionsJson['scheme'] != null ">
+                            <ion-select-option *ngFor="let item of optionsJson['scheme']" value="{{item['cropscheme']}}"> {{item['cropscheme']}} </ion-select-option>
+                        </ng-container>
+                    </ion-select>
+                </ion-item>
+              
+
+               <!--  <ion-list data-id="image1" data-eformid="FRM Booking" data-hidden="False" data-displayorder="38" data-modeOfEntry="tbe" data-suggestive="False">
+                   <ion-item  class="ion-align-items-center">
+                            <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >Adhar Upload</ion-label>
+                            <ion-button slot="end" fill="clear"  id="image1" name="image1" (click)="upload($event)">
+                                <ion-icon name="camera"></ion-icon>
+                            </ion-button>
+                        </ion-item>
+                    <div *ngIf="takenImage['image1']" text-center>
+                        <ion-row>
+                            <ion-col col-6><img class="image" [src]="takenImage['image1']" class="txn-img" align="middle" /></ion-col>
+
+                            <ion-col col-6 class="txn-img-col">
+                                <div class="txn-img-div">FileName:</div>
+                                <div>{{image_meta['image1']['filename']}}</div>
+                                <div *ngIf="!image_meta['image1']['uploadstatus']" (click)="uploadImage('image1')" class="txn-img-div">
+                                    <ion-button icon-start small>
+                                        <ion-icon name="cloud-upload-outline"></ion-icon>
+                                        upload
+                                    </ion-button>
+                                </div>
+                                <div *ngIf="image_meta['image1']['uploadstatus']" (click)="deleteuploadImage('image1')" class="txn-img-div">
+                                    <ion-button ion-button icon-start small color="danger">
+                                        <ion-icon name="trash"></ion-icon>
+                                        Delete
+                                    </ion-button>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </ion-list>         
+
+                <ion-list data-id="image2" data-eformid="FRM Booking" data-hidden="False" data-displayorder="38" data-modeOfEntry="tbe" data-suggestive="False">
+                       <ion-item  class="ion-align-items-center">
+                                <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >Bank Statement</ion-label>
+                                <ion-button slot="end" fill="clear"  id="image2" name="image2" (click)="upload($event)">
+                                    <ion-icon name="camera"></ion-icon>
+                                </ion-button>
+                            </ion-item>
+                    <div *ngIf="takenImage['image2']" text-center>
+                        <ion-row>
+                            <ion-col col-6><img class="image" [src]="takenImage['image2']" class="txn-img" align="middle" /></ion-col>
+
+                            <ion-col col-6 class="txn-img-col">
+                                <div class="txn-img-div">FileName:</div>
+                                <div>{{image_meta['image2']['filename']}}</div>
+                                <div *ngIf="!image_meta['image2']['uploadstatus']" (click)="uploadImage('image2')" class="txn-img-div">
+                                    <ion-button icon-start small>
+                                        <ion-icon name="cloud-upload-outline"></ion-icon>
+                                        upload
+                                    </ion-button>
+                                </div>
+                                <div *ngIf="image_meta['image2']['uploadstatus']" (click)="deleteuploadImage('image2')" class="txn-img-div">
+                                    <ion-button ion-button icon-start small color="danger">
+                                        <ion-icon name="trash"></ion-icon>
+                                        Delete
+                                    </ion-button>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </ion-list>
+
+                <ion-list data-id="image3" data-eformid="FRM Booking" data-hidden="False" data-displayorder="38" data-modeOfEntry="tbe" data-suggestive="False">
+                       <ion-item  class="ion-align-items-center">
+                                <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >Issue Slip</ion-label>
+                                <ion-button slot="end" fill="clear"  id="image3" name="image3" (click)="upload($event)">
+                                    <ion-icon name="camera"></ion-icon>
+                                </ion-button>
+                            </ion-item>
+                    <div *ngIf="takenImage['image3']" text-center>
+                        <ion-row>
+                            <ion-col col-6><img class="image" [src]="takenImage['image3']" class="txn-img" align="middle" /></ion-col>
+
+                            <ion-col col-6 class="txn-img-col">
+                                <div class="txn-img-div">FileName:</div>
+                                <div>{{image_meta['image3']['filename']}}</div>
+                                <div *ngIf="!image_meta['image3']['uploadstatus']" (click)="uploadImage('image3')" class="txn-img-div">
+                                    <ion-button icon-start small>
+                                        <ion-icon name="cloud-upload-outline"></ion-icon>
+                                        upload
+                                    </ion-button>
+                                </div>
+                                <div *ngIf="image_meta['image3']['uploadstatus']" (click)="deleteuploadImage('image3')" class="txn-img-div">
+                                    <ion-button ion-button icon-start small color="danger">
+                                        <ion-icon name="trash"></ion-icon>
+                                        Delete
+                                    </ion-button>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </ion-list>
+
+                 <ion-list data-id="image4" data-eformid="FRM Booking" data-hidden="False" data-displayorder="38" data-modeOfEntry="tbe" data-suggestive="False">
+                       <ion-item  class="ion-align-items-center">
+                                <ion-label style="padding-top: 10px; padding-bottom: 10px;" color="primary"  >Agr Copy</ion-label>
+                                <ion-button slot="end" fill="clear"  id="image4" name="image4" (click)="upload($event)">
+                                    <ion-icon name="camera"></ion-icon>
+                                </ion-button>
+                            </ion-item>
+                    <div *ngIf="takenImage['image4']" text-center>
+                        <ion-row>
+                            <ion-col col-6><img class="image" [src]="takenImage['image3']" class="txn-img" align="middle" /></ion-col>
+
+                            <ion-col col-6 class="txn-img-col">
+                                <div class="txn-img-div">FileName:</div>
+                                <div>{{image_meta['image4']['filename']}}</div>
+                                <div *ngIf="!image_meta['image4']['uploadstatus']" (click)="uploadImage('image4')" class="txn-img-div">
+                                    <ion-button icon-start small>
+                                        <ion-icon name="cloud-upload-outline"></ion-icon>
+                                        upload
+                                    </ion-button>
+                                </div>
+                                <div *ngIf="image_meta['image4']['uploadstatus']" (click)="deleteuploadImage('image4')" class="txn-img-div">
+                                    <ion-button ion-button icon-start small color="danger">
+                                        <ion-icon name="trash"></ion-icon>
+                                        Delete
+                                    </ion-button>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </ion-list> -->
+           
+            </ion-list>
+            
+              
+            </ion-list>
+        </div>
+    </ion-card>
+</ion-content>

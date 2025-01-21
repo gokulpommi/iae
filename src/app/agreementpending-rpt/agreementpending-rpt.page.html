@@ -1,0 +1,42 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Agreement Pending</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content class="rpt-background">
+    <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="paramModal($event,fab)">
+            <ion-icon name="search-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-card style="border-radius: 10px;">
+        <form id="agreementpending_rptForm" name="agreementpending_rptForm">
+            <div *ngIf="!searchDisplay" class="report_header">
+                <ion-row class="header_align"><h5>Agreement Pending</h5></ion-row>
+            </div>
+            <div class="custom-card">
+                <table class="table" id="agreementpending_rpt_tb" name="agreementpending_rpt_tb">
+                    <thead>
+                        <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="farmername" style="text-align: center;">Farmer Name</th>
+                        <th data-expandbt="true" style="width: 10%;"></th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+    </ion-card>
+</ion-content>
+<ion-footer></ion-footer>
+

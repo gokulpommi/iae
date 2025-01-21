@@ -1,0 +1,20 @@
+
+  .item-interactive.ion-invalid {
+    --highlight-background: #4285F4 !important;
+  }
+
+  .item-interactive.ion-valid {
+    --highlight-background: #4285F4 !important;
+  }
+
+ion-item {
+  --border-radius: 12px;
+  --background: #efefef;
+  margin-top: 10px;
+  padding-left: 10px;
+    padding-right: 10px;
+}
+
+ion-label{
+  color: black !important;
+}

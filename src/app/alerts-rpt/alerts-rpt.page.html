@@ -1,0 +1,41 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: #ffffff;" defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: #ffffff;">Alerts</ion-title> 
+
+     <ion-buttons slot="end">
+            <!-- <ion-button color="dark" ion-button (click)="searchToggle()">
+                <ion-icon style="color: #ffffff;" class="hd-icon" name="search"></ion-icon>
+            </ion-button> -->
+        </ion-buttons>
+      </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+   <!-- <ion-fab #fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button  (click)="paramModal($event,fab)">
+      <ion-icon name="search-outline" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+<ion-card style="border-radius: 10px;">
+    <form id="alerts_rptForm" name="alerts_rptForm">
+        <div *ngIf="!searchDisplay" class="report_header">
+            <ion-row  class="header_align"><h5>Alert Type</h5></ion-row>
+        </div>
+        <div>
+            <table style="background:#FFFFFF" class="table table-striped" id="alerts_rpt_tb" name="alerts_rpt_tb">
+                <thead>
+                   <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="ragid">Ragid</th>
+                    <th data-expandbt="false" data-hidden="false" data-type="text" data-dontrepeat="false" data-icons="" data-exp="" data-ac="F" data-nod="0" data-idt="alerttype">Alert Type</th>
+                    <th data-expandbt="true" style="width: 10%;"></th>
+                </thead>
+                <tbody></tbody>
+            </table>
+      </div>
+    </form>
+</ion-card>
+</ion-content>
