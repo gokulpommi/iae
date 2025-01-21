@@ -154,34 +154,34 @@ export class LoginPage implements OnInit {
      
 
 
-    await this.executeSql(msql, keys).then((result:any) => {
-      let company: any, globalset: any, offline: any, forgot: any, device:any ;
+    // await this.executeSql(msql, keys).then((result:any) => {
+    //   let company: any, globalset: any, offline: any, forgot: any, device:any ;
 
-      for (let i = 0; i < result.rows.length; i++) {
-        const row = result.rows.item(i);
+    //   for (let i = 0; i < result.rows.length; i++) {
+    //     const row = result.rows.item(i);
         
-        switch (row.key) {
-          case 'companysetup':
-            this.companysetup = row.value;
-            break;
-          case 'globalsetup':
-            this.globalsetup = row.value;
-            break;
-          case 'offlinesync':
-           this.offlinesync = row.value;
-            break;
-          case 'forgetpassword':
-            this.forgetpassword = row.value;
-            break;
-          case 'deviceid':
-            this.deviceBased = row.value;
-            break;
-          default:
+    //     switch (row.key) {
+    //       case 'companysetup':
+    //         this.companysetup = row.value;
+    //         break;
+    //       case 'globalsetup':
+    //         this.globalsetup = row.value;
+    //         break;
+    //       case 'offlinesync':
+    //        this.offlinesync = row.value;
+    //         break;
+    //       case 'forgetpassword':
+    //         this.forgetpassword = row.value;
+    //         break;
+    //       case 'deviceid':
+    //         this.deviceBased = row.value;
+    //         break;
+    //       default:
             
-            break;
-        }
-      }
-    });
+    //         break;
+    //     }
+    //   }
+    // });
 
   
     let username = paramsValues['USERNAME']; 
